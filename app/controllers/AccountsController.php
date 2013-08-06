@@ -38,16 +38,19 @@ class AccountsController extends BaseController {
 			'confpassword'	=> 'required|same:password',
 		);
 
-	
 		$validator = Validator::make($input,$rules);
+
+		$data['action'] = "forward";
 
 		if($validator->fails())
 		{
+			$data['action'] = "retry";
+
 			$messages = $validator->messages();
 
 			if(Request::ajax())
 			{
-				$data['response'] = $messages->all("<li>:message</li>");
+				$data['errors'] = $messages->all("<li>:message</li>");
 
 				return Response::json($data);
 			}

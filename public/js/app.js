@@ -1,6 +1,21 @@
 var form = $('.form');
 
+var procJSON = {
+	retry : function(data,form)
+	{
+		console.log(data);
+	}
+}
+
 $(document).ready(function(handler){
+
+	$(document).ajaxStart(function(){
+		$('.preloader').show();
+	});
+
+	$(document).ajaxStop(function(){
+		$('.preloader').hide();
+	});
 
 	form.submit(function(e){
 		e.preventDefault();
@@ -9,6 +24,7 @@ $(document).ready(function(handler){
 		    dt = frm.serializeArray(),
 		    action = frm.attr('action');
 
+
 		$.ajax({
 			url: action,
 			data: dt,
@@ -16,11 +32,20 @@ $(document).ready(function(handler){
 			type: 'post',
 			success: function(data)
 			{
-				console.log(data);
+				try
+				{
+					procJSON[data.action](data,frm);
+				}
+				catch(e)
+				{
+					console.log(e.message);
+				}
+
 			}
 			,error: function(xhr)
 			{
 				console.log(xhr.responseText);
+				$preloader(false);
 			}
 		})
 	})

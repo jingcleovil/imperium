@@ -8,6 +8,7 @@ body {
 	font-size: 14px;
 	color: #fff;
 	background: #edebec;
+	position: relative;
 }
 
 a {
@@ -131,6 +132,22 @@ a {
     display: block;
     height: 0;
     clear: both;
+}
+
+.preloader
+{
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	background: orange;
+	top: 50%;
+	left: 50%;
+	z-index: 20;
+	margin-top: -60px;
+	margin-left: -30px;
+	border-radius: 10px;
+	background: rgba(1,1,1,0.8) url(../img/preloader.gif?v=1) no-repeat center;
+	display: none;
 }
 
 

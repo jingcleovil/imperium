@@ -11,7 +11,7 @@
 
     </head>
     <body>
-
+        <div class="preloader"></div>
         <div class="wrapper">
     	
             <div class="sidebar">
@@ -37,7 +37,7 @@
                     }
                     else
                     {
-                        yepnope('{{asset('js/app.js')}}');
+                        yepnope('{{asset('js/app.js')}}?' + Math.random() );
                     }
                 
                 }
