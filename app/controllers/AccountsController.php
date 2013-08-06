@@ -6,6 +6,9 @@ class AccountsController extends BaseController {
 
 	public function index()
 	{
+		
+
+
 		$data['title'] = "Welcome to Page";
 
 		$this->layout->content = View::make('main.index');
@@ -16,6 +19,11 @@ class AccountsController extends BaseController {
 	
 	public function create()
 	{
+		// $accounts = Accounts::where('account_id','>',1)->get()->first()->toArray();
+		// echo "<pre>";
+		// print_r($accounts);
+		// exit;
+
 		$data['title'] 	= "Register Account";
 		$data['ptitle'] = "Register Account";
 		$data['stitle'] = "Please read our Terms of Service (ToS) before registering for an account, to ensure that you understand the rules of holding an account with our private Ragnarok Online game server.";
@@ -32,10 +40,31 @@ class AccountsController extends BaseController {
 	{
 		$input = Input::all();
 
+		$validate_email = "";
+		$AllowMD5 		= false;
+		$between		= '8,31';
+
+		if(Config::get('my_config.EmailIsUnique'))
+			$validate_email = "|unique:login,email";
+
+		if(Config::get('my_config.AllowMD5'))
+			$AllowMD5 = true;
+
+		if(is_array(Config::get('my_config.PassWordLength')) && count(Config::get('my_config.PassWordLength')) >= 2)
+		{
+			$passlength = Config::get('my_config.PassWordLength');
+
+			$between = $passlength[0].",".$passlength[1];
+		}
+
+
+
 		$rules = array(
-			'username'	=> 'required|unique:login,userid',
-			'password'	=> 'required',
-			'confpassword'	=> 'required|same:password',
+			'username'			=> 'required|unique:login,userid|not_in:super,admin',
+			'password'			=> 'required|between:'.$between,
+			'confirmpassword'	=> 'required|same:password',
+			'gender'			=> 'required',
+			'email'				=> 'required|email'.$validate_email
 		);
 
 		$validator = Validator::make($input,$rules);
@@ -51,11 +80,36 @@ class AccountsController extends BaseController {
 			if(Request::ajax())
 			{
 				$data['errors'] = $messages->all("<li>:message</li>");
-
 				return Response::json($data);
 			}
 
 			return Redirect::to('accounts/create')->withErrors($validator);
+		}
+		else
+		{
+			$data['action'] = "success";
+
+			$accounts = new Accounts;
+
+			$password = Input::get('password');
+
+			if($AllowMD5) $password = md5($password);
+
+			$month 	= Input::get('month');
+			$year 	= Input::get('year');
+			$day 	= Input::get('day');
+
+			$birthdate = $year."-".$month."-".$day;
+
+			$accounts->userid 		= Input::get('username');
+			$accounts->user_pass 	= $password;
+			$accounts->email 		= Input::get('email');
+			$accounts->sex 			= Input::get('gender');
+			$accounts->birthdate	= $birthdate;
+
+			$accounts->save();
+
+			return Response::json($data);
 		}
 
 	}

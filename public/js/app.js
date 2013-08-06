@@ -15,6 +15,10 @@ var procJSON = {
 		html.push("</div>");
 
 		$('.response',form).prepend(html.join(""));
+	},
+	success: function(data,form)
+	{
+		$(form).trigger('reset');
 	}
 }
 

@@ -65,10 +65,10 @@
 						<label for="email" class="col-lg-2 control-label">Gender</label>
 						<div class="col-lg-10 clearfix">
 					  		<label class="radio-inline">
-								<input type="radio" id="inlineCheckbox1" name="gender" value="option1"> Male
+								<input type="radio" id="inlineCheckbox1" name="gender" value="M"> Male
 							</label>
 							<label class="radio-inline">
-								<input type="radio" id="inlineCheckbox2" name="gender" value="option2"> Female ?
+								<input type="radio" id="inlineCheckbox2" name="gender" value="F"> Female ?
 							</label>
 						</div>
 					</div>
@@ -76,20 +76,35 @@
 					<div class="form-group">
 						<label for="email" class="col-lg-2 control-label">Birtdate</label>
 						<div class="col-lg-2 clearfix">
-					  		<select class="form-control">
-					  			<option></option>
+					  		<select class="form-control" name="year">
+					  			<?php for($year = date('Y') - 7; $year >= 1980; $year--){?>
+					  			<option><?=$year?></option>
+					  			<? } ?>
 					  		</select>
 						</div>
 						
 						<div class="col-lg-2 clearfix">
-					  		<select class="form-control">
-					  			<option></option>
+					  		<select class="form-control" name="month">
+					  			<option value="1">Jan</option>
+					  			<option value="2">Feb</option>
+					  			<option value="3">Mar</option>
+					  			<option value="4">Apr</option>
+					  			<option value="5">May</option>
+					  			<option value="6">Jun</option>
+					  			<option value="7">Jul</option>
+					  			<option value="8">Aug</option>
+					  			<option value="9">Sep</option>
+					  			<option value="10">Oct</option>
+					  			<option value="11">Nov</option>
+					  			<option value="12">Dec</option>
 					  		</select>
 						</div>
 						
 						<div class="col-lg-2 clearfix">
-					  		<select class="form-control">
-					  			<option></option>
+					  		<select class="form-control" name="day">
+					  			<?php for($d = 1; $d <= 31; $d++){?> 
+					  			<option value="<?=$d?>"><?=$d?></option>
+					  			<? } ?>
 					  		</select>
 						</div>
 					</div>

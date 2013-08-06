@@ -13,8 +13,7 @@ class CreateAccountsTable extends Migration {
 	public function up()
 	{
 		Schema::create('accounts', function(Blueprint $table) {
-			$table->increments('id');
-			$table->integer('account_id');
+			$table->increments('account_id');
 			$table->timestamps();
 		});
 	}

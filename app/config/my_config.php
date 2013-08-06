@@ -2,7 +2,28 @@
 
 return array(
 
-	'siteTitle'	=> 'Imperium Ragnarok Panel',
+	/*
+	|--------------------------------------------------------------------------
+	| Ragnarok Default Settings
+	|--------------------------------------------------------------------------
+	|
+	| This is your default ragnarok settings
+	|
+	*/
+
+	'siteTitle'		=> 'Imperium Ragnarok Panel', // Default Site Title
+	'AllowMD5'		=> true, // Set false if you want to disabled md5 password,
+	'EmailIsUnique'	=> false, // Allow multiple email
+	'PassWordLength'=> array(8,31), // Password max and min lenth
+
+	/*
+	|--------------------------------------------------------------------------
+	| Assets Settings
+	|--------------------------------------------------------------------------
+	|
+	| Do not modify settings below unless you know what you are doing.
+	|
+	*/
 
 	'resource_folder' => 'resources/',
 
