@@ -57,7 +57,7 @@ $(document).ready(function(handler){
 			,error: function(xhr)
 			{
 				console.log(xhr.responseText);
-				$preloader(false);
+				$('.preloader').hide();
 			}
 		})
 	})
