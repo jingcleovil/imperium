@@ -3,7 +3,18 @@ var form = $('.form');
 var procJSON = {
 	retry : function(data,form)
 	{
-		console.log(data);
+		var html = [];
+		var errors = data.errors;
+
+		html.push("<div class=\"alert alert-danger\">");
+
+		$.each(errors,function(i,n){
+			html.push(n);
+		});
+
+		html.push("</div>");
+
+		$('.response',form).prepend(html.join(""));
 	}
 }
 
@@ -24,6 +35,7 @@ $(document).ready(function(handler){
 		    dt = frm.serializeArray(),
 		    action = frm.attr('action');
 
+		$('.response',frm).empty();
 
 		$.ajax({
 			url: action,

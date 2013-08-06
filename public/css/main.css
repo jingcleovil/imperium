@@ -115,10 +115,7 @@ a {
 {
 	/*height: 300px;*/
 	height: auto;
-	background: #fff;
-	margin: 5px 20px;
-	border: 1px solid #ddd;
-	padding: 20px;
+	margin: 5px 20px;	
 }
 
 .form-hor .form-group
