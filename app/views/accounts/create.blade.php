@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-
+	@include('widget.menu_top')
 
 	<div class="title">
 		

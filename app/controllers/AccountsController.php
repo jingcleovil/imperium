@@ -6,8 +6,6 @@ class AccountsController extends BaseController {
 
 	public function index()
 	{
-		
-
 
 		$data['title'] = "Welcome to Page";
 
@@ -114,7 +112,6 @@ class AccountsController extends BaseController {
 
 	}
 
-	
 	public function show($id)
 	{
 		//
@@ -136,6 +133,18 @@ class AccountsController extends BaseController {
 	public function destroy($id)
 	{
 		//
+	}
+
+	public function login()
+	{
+		$data['title'] 	= "Login";
+		$data['ptitle'] = "Login";
+		$data['stitle'] = "";
+		$data['module'] = "login";
+
+		$this->layout->content = View::make('accounts.login');
+
+		View::share($data);
 	}
 
 }

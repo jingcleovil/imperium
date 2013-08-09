@@ -97,11 +97,11 @@ return array(
 	|
 	*/
 	'guard_options' => array(
-		/*
+		
 		'sass' => array(
-			'line_numbers' => true,
+			//'line_numbers' => true,
 			'style'		   => ':compressed'
 		)
-		*/
+		
 	)
 );

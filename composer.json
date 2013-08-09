@@ -3,7 +3,9 @@
 	"description": "The Laravel Framework.",
 	"keywords": ["framework", "laravel"],
 	"require": {
-		"laravel/framework": "4.0.*",
+		"laravel/framework": "4.0.*"
+	},
+	"require-dev": {
 		"way/generators": "1.0.*@dev",
 		"way/guard-laravel": "dev-master"
 	},
