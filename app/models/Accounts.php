@@ -6,12 +6,11 @@ class Accounts extends Eloquent {
 	protected $table 		= 'login';
 	public $timestamps 		= false;
 
-	public function read($where=array(),$skip=0,$take=10,$orderby=array()) 
+	public function read($where=array(),$skip=0,$take=10,$orderby=array(),$select=array()) 
 	{
 		$table = DB::table($this->table)
 					->skip($skip)
 					->take($take)
-					
 					->where(function($query) use ($where) {
 						
 						if($where && is_array($where))

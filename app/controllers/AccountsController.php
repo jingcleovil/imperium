@@ -234,10 +234,23 @@ class AccountsController extends BaseController {
 
 		foreach($results->get() as $res)
 		{
+			
+			$image = "";
+
+			if(file_exists(public_path('images/items/thumb/'.$res->nameid.".gif")))
+			{
+				$image = "<img src='".asset('images/items/thumb/'.$res->nameid).".gif'/>";
+			}
+
+			if($res->type == 6)
+			{
+				$image = "<img src='".asset('images/items/card.gif')."'/>";
+			}
+
 			$rows[] = array(
 				$res->id,
-				"",
-				$res->name_japanese,
+				$image,
+				"<a href='".url('items/'.$res->id)."' class='view_data'>".$res->name_japanese."</a>",
 				$res->amount,
 				$res->expire_time,
 				""

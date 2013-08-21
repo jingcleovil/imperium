@@ -40,12 +40,9 @@
 			</div>
 		</div>
 	</div>
-	
-
-	
-
 
 @stop
+
 
 @section('var')
 	var unsortable_cols = [0];
@@ -59,6 +56,7 @@
 
 @section('js')
 
+	
 	yepnope('{{ asset('js/jquery.dataTables.min.js') }}');
 	yepnope('{{ asset('js/table.js') }}');
 

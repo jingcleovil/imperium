@@ -20,9 +20,5 @@ Route::resource('characters/stats', 'CharactersController@stats');
 Route::resource('characters/lists', 'CharactersController@lists');
 Route::resource('characters', 'CharactersController');
 
-
-Route::resource('servers', 'ServersController');
-
-Route::resource('cms', 'CmsController');
-
-Route::resource('itemmalls', 'ItemmallsController');
+// Items Routes
+Route::resource('items', 'ItemsController');

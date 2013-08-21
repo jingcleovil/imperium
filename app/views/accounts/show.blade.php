@@ -109,7 +109,7 @@
 				    	<thead>
 							<tr>
 								<th width="5%">ID</th>
-								<th>Icon</th>
+								<th width="5%">Icon</th>
 								<th>Name</th>
 								<th>Amount</th>
 								<th>Expired</th>
@@ -138,7 +138,9 @@
 	
 @stop
 
-
+@section('modal')
+	@include('main.modal.modal_ajax')
+@stop
 
 @section('css')
 	{{ stylesheet('jquery.dataTables.css') }}
@@ -146,10 +148,11 @@
 @stop
 
 @section('js')
-	
+
 	yepnope('{{ asset('js/tab.js') }} ')
 	yepnope('{{ asset('js/jquery.dataTables.min.js') }} ')
 	yepnope('{{ asset('js/table.js') }}?v=1')
+	yepnope('{{ asset('js/ajax_modal.js') }}?v=1')
 
 @stop
 

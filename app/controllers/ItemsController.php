@@ -1,6 +1,6 @@
 <?php
 
-class ItemmallController extends BaseController {
+class ItemsController extends BaseController {
 
 	protected $layout;
 	protected $table;
@@ -9,7 +9,7 @@ class ItemmallController extends BaseController {
 
 	public function __construct()
 	{
-		$this->table = new Itemmall;
+		$this->table = new Items;
 
 		$this->module = "itemmall";
 		$this->layout = "layouts.".Config::get('ragnarok.DefaultTheme');
@@ -61,7 +61,32 @@ class ItemmallController extends BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$data['item'] = $item = $this->table->find($id)->toArray();
+
+
+		$data['icon'] = "";
+
+		if(file_exists(public_path('images/items/thumb/'.$id.".gif")))
+		{
+			$data['icon'] = "<img src='".asset('images/items/thumb/'.$id).".gif'/>";
+		}
+
+		if($item['type'] == 6)
+		{
+			$data['icon'] = "<img src='".asset('images/items/card.gif')."'/>";
+		}
+
+		$content = View::make('items.show',$data);
+
+		if(Request::ajax())
+		{
+			$data['content'] = (string)$content;
+			$data['title'] = $data['icon']." ".$item['name_japanese']." [ $item[id] ]";
+
+			return Response::json($data);
+		}
+
+		return $content;
 	}
 
 	/**
@@ -72,7 +97,11 @@ class ItemmallController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$data['item'] = $item = $this->table->find($id)->toArray();
+
+		$data['id'] = $id;
+
+		return View::make('items.edit',$data);
 	}
 
 	/**
@@ -83,7 +112,11 @@ class ItemmallController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$item = Items::find($id);
+
+		$item->update(Input::all());
+
+		return Response::json(array('response'=>'updated'));
 	}
 
 	/**

@@ -41,6 +41,10 @@
         </div>
         <!--main-wrapper -->
 
+        @section('modal')
+
+        @show
+
         <script type="text/javascript">
 
             var root, module, unsortable_cols, autoload;
@@ -55,6 +59,8 @@
             yepnope({
                 load: '//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js',
                 callback: function(url, result, key) {
+
+                    yepnope('{{ asset('js/bootstrap.min.js') }}');
 
                     if(window.jQuery) {
                        @section('js')
