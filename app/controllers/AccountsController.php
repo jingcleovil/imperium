@@ -134,7 +134,16 @@ class AccountsController extends BaseController {
 
 	public function show($id)
 	{
-		//
+		$user = Accounts::find($id)->toArray();
+
+		$data['title'] 	= "Viewing Account [ ".$id." ]";
+		$data['user'] 	= $user;
+		$data['icon'] 	= "user";
+		$data['module'] = $this->module;
+
+		$this->layout->content = View::make('accounts.show');
+
+		View::share($data);
 	}
 
 	
@@ -176,7 +185,7 @@ class AccountsController extends BaseController {
 		foreach($results->get() as $res)
 		{
 			$rows[] = array(
-				"<a href='' class='glyphicon glyphicon-search'></a>",
+				"<a href=\"".url('accounts/'.$res->account_id)."\" class='glyphicon glyphicon-search'></a>",
 				$res->account_id,
 				$res->userid,
 				$res->email,
@@ -184,6 +193,54 @@ class AccountsController extends BaseController {
 				$res->last_ip,
 				$res->lastlogin
 				
+			);
+		}
+
+		$data['aaData'] = $rows;
+
+		$data['iTotalDisplayRecords'] = $total;
+		$data['iTotalRecords'] = $displayRecords;
+
+		return Response::json($data);
+	}
+
+	public function storage()
+	{
+
+		$this->table = new Storage;
+
+		$displayRecords = Input::get('iDisplayLength');
+		$iDisplayStart	= Input::get('iDisplayStart');
+		$sSearch 		= Input::get('sSearch');
+
+		$account_id 	= Input::get('account_id');
+
+		$rows 			= [];
+		$filter			= [];
+		$data['aaData'] = [];
+
+		if($sSearch)
+		{
+			$filter = ['userid','like',"%$sSearch%"];
+		}
+
+		if($account_id)
+		{
+			$filter = ['account_id','=',$account_id];
+		}
+
+		$results 	= $this->table->read($filter,$iDisplayStart,$displayRecords,array('account_id'=>'desc'));
+		$total 		= $this->table->read($filter)->count();
+
+		foreach($results->get() as $res)
+		{
+			$rows[] = array(
+				$res->id,
+				"",
+				$res->name_japanese,
+				$res->amount,
+				$res->expire_time,
+				""
 			);
 		}
 

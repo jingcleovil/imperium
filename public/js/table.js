@@ -139,13 +139,21 @@ $(document).ready(function() {
         "sFilter": "sFilter",
         "sLength": "sLength"
     }
-
-    var unsortable = [];
+    
+    var unsortable = [], action, autoload;
 
     if(typeof unsortable_cols != "undefined")
-    {
     	unsortable = unsortable_cols;
-    }   
+    
+    if(typeof action_url != "undefined")
+    	action = action_url;
+
+    if(typeof autoload == "undefined")
+    	var autoload = null;
+
+    if(typeof param == "undefined")
+    	param = {'name':'test','value':'test'};
+
 
     $.extend($.fn.dataTableExt.oStdClasses, extensions);
 
@@ -162,9 +170,12 @@ $(document).ready(function() {
 		},
 		"bProcessing": true,
 		"bServerSide": true,
-		"sAjaxSource": root + '/' + module + '/lists',
-		//"iDeferLoading": 10,
+		"sAjaxSource": root + '/' + module + '/' + action,
+		"iDeferLoading": autoload,
 		"fnServerData": function ( sSource, aoData, fnCallback ) {
+			
+			aoData.push(param);
+
 			$.ajax( {
 				"dataType": 'json', 
 				"type": "POST", 

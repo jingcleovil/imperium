@@ -11,6 +11,7 @@ class Accounts extends Eloquent {
 		$table = DB::table($this->table)
 					->skip($skip)
 					->take($take)
+					
 					->where(function($query) use ($where) {
 						
 						if($where && is_array($where))

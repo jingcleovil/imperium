@@ -43,7 +43,7 @@
 
         <script type="text/javascript">
 
-            var root, module, unsortable_cols;
+            var root, module, unsortable_cols, autoload;
 
             root = "{{ url() }}";
             module = "{{ isset($module) ? $module : '' }}";

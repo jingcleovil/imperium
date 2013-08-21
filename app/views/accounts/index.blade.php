@@ -1,8 +1,10 @@
 @section('content')
+	
+	<?php 
+		if(!isset($icon)) $icon = "home";
+	?>
 
-	<h1><span class="glyphicon glyphicon-home"></span> {{ $title }}</h1>
-
-
+	<h1><span class="glyphicon glyphicon-$icon"></span> {{ $title }}</h1>
 
 	<div class="col-md-12">
 		
@@ -19,14 +21,13 @@
 				<table class="table table-striped table-bordered" id="grid">
 			    	<thead>
 						<tr>
-							<th width="5%">Modify</th>
+							<th width="5%">Show</th>
 							<th>Account ID</th>
 							<th>Username</th>
 							<th>Email</th>
 							<th>Gender</th>
 							<th>Last IP</th>
 							<th>Last Login</th>
-							
 						</tr>
 					</thead>
 					<tbody>
@@ -48,6 +49,7 @@
 
 @section('var')
 	var unsortable_cols = [0];
+	var action_url = 'lists';
 @stop;
 
 @section('css')

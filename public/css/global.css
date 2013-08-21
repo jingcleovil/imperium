@@ -146,3 +146,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c0c6cd', end
 	border-bottom: 1px solid #969ca3;
 }
 h1 .glyphicon {font-size: 22px;}
+
+.tab-viewer {
+	margin: 0 1px;
+}
+
+.tab-viewer .panel {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.tab-viewer .list-group-item span {
+	background: orange;
+	float: right;
+	width: 90%;
+}
+.row-table {
+	padding: 10px;
+}
+
+.tab-pane { display: none }
+.tab-pane.tab-pane-active { display: block }
+

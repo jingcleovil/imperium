@@ -8,11 +8,22 @@
 		<div class="col-md-6">
 			<div class="panel panel-default">
 				<div class="panel-heading">General Reports</div>
-				<div class="panel-body">
-					<ul class="list-group">
+				<!-- <div class="panel-body">
+					
+				</div>
+ -->
+				<ul class="list-group">
 						<li class="list-group-item">
 							<span class="badge">{{ number_format($totalAccounts) }}</span>
 							Account
+						</li>
+						<li class="list-group-item">
+							<span class="badge">{{ number_format($totalZeny) }}</span>
+							Total Male
+						</li>
+						<li class="list-group-item">
+							<span class="badge">{{ number_format($totalZeny) }}</span>
+							Total Female
 						</li>
 						<li class="list-group-item">
 							<span class="badge">{{ number_format($totalCharacters) }}</span>
@@ -26,18 +37,12 @@
 							<span class="badge">{{ number_format($totalZeny) }}</span>
 							Zeny
 						</li>
-					</ul>
-					<ul class="list-group">
 						<li class="list-group-item">
-							<span class="badge">{{ number_format($totalAccounts) }}</span>
-							Online Accounts
-						</li>
-						<li class="list-group-item">
-							<span class="badge">{{ number_format($totalAccounts) }}</span>
-							Online Accounts
+							<span class="badge">{{ number_format($totalZeny) }}</span>
+							Online Users
 						</li>
 					</ul>
-				</div>
+				
 			</div>
 		</div>
 

@@ -53,6 +53,7 @@
 
 @section('var')
 	var unsortable_cols = [0];
+	var action_url = 'lists';
 @stop;
 
 @section('css')

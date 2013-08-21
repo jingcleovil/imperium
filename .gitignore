@@ -6,3 +6,5 @@ composer.lock
 .DS_Store
 CONTRIBUTING.md
 Guardfile
+public/images/items/*
+public/images/jobs/*

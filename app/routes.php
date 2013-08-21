@@ -6,6 +6,7 @@ Route::get('/','MainController@index');
 // Account Routes
 Route::get('accounts/login','AccountsController@login');
 Route::post('accounts/lists','AccountsController@lists');
+Route::post('accounts/storage','AccountsController@storage');
 Route::resource('accounts', 'AccountsController');
 
 // Dashboard
