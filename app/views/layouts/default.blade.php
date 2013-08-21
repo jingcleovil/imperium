@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         {{ stylesheet('bootstrap.min.css') }}
-        {{ stylesheet('default.css') }}
+        {{ stylesheet('global.css') }}
 
         @section('css')
         
@@ -18,24 +18,28 @@
     </head>
     <body>
         
-        <div class="row row-main">
-            
-            <div class="col-xs-2 col-md-2 col-sidebar">
+        
+        <div class="main-wrapper">
+    
+            <div class="left-panel col-lg-2 col-md-3 col-sm-3 col-xs-12 padding-none">
                 
+
                 @include('main.logo')
-
-                @include('main.nav')
-
-            </div>
-
-            <div class="col-xs-10 col-md-10 col-main">
-                
-               @yield('content')
+                @include('main.profile')
+                @include('main.menu')
 
             </div>
+
+            <!--left-panel -->
+            <div class="right-panel col-lg-10 col-md-9  col-sm-9 col-xs-12 padding-none">
+                <div>
+                    @yield('content')
+                    
+                </div>
+            </div>
+          <!--right-panel -->
         </div>
-
-
+        <!--main-wrapper -->
 
         <script type="text/javascript">
 

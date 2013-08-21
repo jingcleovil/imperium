@@ -27,7 +27,9 @@ hr {
 	text-align: center;
 	color: #fff;
 	text-shadow: 1px 1px 1px #1a9f85;
+	margin: 15px 0;
 }
+
 
 .logo h1 {
 	font-size: 32px;
@@ -56,15 +58,23 @@ hr {
 .navigation li a {
 	color: #fff;
 	text-shadow: 1px 1px 1px #1a9f85;
-	font-size: 15px;
-	padding: 5px 20px;
+	font-size: 14px;
+	padding: 2px 20px;
 }
 
-.navigation li a:hover,
+.navigation li a:hover {
+	background: #17927a;
+}
+
 .navigation li.active a {
 	background: #189b82;
 }
 
 .page-title h3 {
 	color: #127763;
+}
+
+.table-bordered>thead>tr>th, .table-bordered>thead>tr>td
+{
+	border-bottom-width: 0;
 }

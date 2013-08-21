@@ -2,14 +2,34 @@
 
 class AccountsController extends BaseController {
 
-	protected $layout = "layouts.master";
+	protected $layout;
+	protected $table;
+	protected $module;
+	protected $title;
+
+	public function __construct()
+	{
+		$this->module = "Accounts";
+		$this->table = new Accounts;
+		$this->layout = "layouts.".Config::get('ragnarok.DefaultTheme');
+
+		$menuItems = Config::get('ragnarok.MenuItems');
+
+		if(isset($menuItems[$this->module]))
+		{
+			$module 	  = $menuItems[$this->module];
+			$this->module = $module['module'];
+		}
+
+	}
 
 	public function index()
 	{
 
-		$data['title'] = "Welcome to Page";
+		$data['title'] = ucwords($this->module);
+		$data['module'] = $this->module;
 
-		$this->layout->content = View::make('main.index');
+		$this->layout->content = View::make('accounts.index');
 
 		View::share($data);
 	}
@@ -135,5 +155,43 @@ class AccountsController extends BaseController {
 		//
 	}
 
+	public function lists()
+	{
+		$displayRecords = Input::get('iDisplayLength');
+		$iDisplayStart	= Input::get('iDisplayStart');
+		$sSearch 		= Input::get('sSearch');
 
+		$rows 			= [];
+		$filter			= [];
+		$data['aaData'] = [];
+
+		if($sSearch)
+		{
+			$filter = ['userid','like',"%$sSearch%"];
+		}
+
+		$results 	= $this->table->read($filter,$iDisplayStart,$displayRecords,array('account_id'=>'desc'));
+		$total 		= $this->table->read($filter)->count();
+
+		foreach($results->get() as $res)
+		{
+			$rows[] = array(
+				"<a href='' class='glyphicon glyphicon-search'></a>",
+				$res->account_id,
+				$res->userid,
+				$res->email,
+				$res->sex === 'M' ? 'Male' : 'Female',
+				$res->last_ip,
+				$res->lastlogin
+				
+			);
+		}
+
+		$data['aaData'] = $rows;
+
+		$data['iTotalDisplayRecords'] = $total;
+		$data['iTotalRecords'] = $displayRecords;
+
+		return Response::json($data);
+	}
 }

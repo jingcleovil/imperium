@@ -11,10 +11,17 @@ return array(
 	|
 	*/
 
-	'siteTitle'		=> 'Imperium Ragnarok Panel', // Default Site Title
+	'SiteName'		=> 'Imperium Control Panel', // Default Site Title
 	'AllowMD5'		=> true, // Set false if you want to disabled md5 password,
 	'EmailIsUnique'	=> false, // Allow multiple email
 	'PassWordLength'=> array(8,31), // Password max and min lenth
+	'DefaultTheme'  => 'default',
+
+	'ServerInfo'	=>	array(
+
+		'ServerName' => 'Imperium RO', 
+
+	),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -25,23 +32,18 @@ return array(
 	|
 	*/
 
-	'MenuItems'	=>	array(
+	'MenuItems'		=> 	array(
 
-		'Main Menu'	=>	array(
-			'Home'		=>	array('module'	=> '/', 'icon' => 'home'),
-			'Streams'	=>	array('module'	=> 'streams', 'icon' => 'link'),
-		),
+		'Home'			=> array('module' => '/', 	'icon' => 'home', 'access' => array(1,2,3)),
+		'Dashboard'		=> array('module' => 'dashboard', 	'icon' => 'time', 'access' => array(1,2,3)),
+		'Accounts'		=> array('module' => 'accounts', 	'icon' => 'user'),
+		'Characters'	=> array('module' => 'characters', 	'icon' => 'list'),
+		'Server Info'	=> array('module' => 'servers', 		'icon' => 'tasks'),
+		'Donate'		=> array('module' => 'donation', 	'icon' => 'usd'),
+		'Purchase'		=> array('module' => 'itemall/purchase', 	'icon' => 'shopping-cart'),
+		'Login'			=> array('module' => 'accounts/login', 	'icon' => 'lock'),
+		'Logout'		=> array('module' => 'accounts/logout', 	'icon' => 'off'),
 
-		'Account'	=>	array(
-			'Register' 	=> array('module' => 'accounts', 'action' => 'create', 'icon' => 'user'),
-			'Login' 	=> array('module' => 'accounts', 'action' => 'login', 'icon' => 'lock'),
-		),
-
-		'Donations'	=>	array(
-			'Purchase' => array('module' => 'account', 'action' => 'create', 'icon' => 'usd'),
-			'Donate' => array('module' => 'account', 'action' => 'create', 'icon' => 'shopping-cart')
-		),
-	
 	),
 
 	/*

@@ -1,9 +1,9 @@
 <?php
 
-class Accounts extends Eloquent {
+class Character extends Eloquent {
 
-	protected $primaryKey 	= 'account_id';
-	protected $table 		= 'login';
+	protected $primaryKey 	= 'char_id';
+	protected $table 		= 'char';
 	public $timestamps 		= false;
 
 	public function read($where=array(),$skip=0,$take=10,$orderby=array()) 
@@ -38,4 +38,5 @@ class Accounts extends Eloquent {
 
 		return $table;
 	}
+
 }

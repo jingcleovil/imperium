@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'ragnarok',
-			'username'  => 'ragnarok',
-			'password'  => 'ragnarok',
+			'database'  => 'rage_ro',
+			'username'  => 'rage_ro',
+			'password'  => 'rage_ro',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

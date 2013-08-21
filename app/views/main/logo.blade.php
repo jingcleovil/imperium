@@ -1,6 +1,2 @@
-<div class="logo">
-    <h1>
-        Imperium
-        <span>Control Panel</span>
-    </h1>
-</div>
+<div class="logo"><span>iCP</span> <i>Imperium Control Panel</i></div>
+<!--logo -->

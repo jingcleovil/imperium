@@ -2,14 +2,14 @@
 
 class MainController extends BaseController {
 
-	protected $layout = "layouts.master";
+	protected $layout = "layouts.default";
 
 	public function index()
 	{
-		$data['title'] 	= "Welcome to Page | ".Config::get('ragnarok.siteTitle');
+		$data['title'] 	= "Imperium Control Panel (iCP)";
 		$data['module'] = "main";
 
-		$this->layout->content = View::make('main/index');
+		$this->layout->content = View::make('main.index');
 
 		View::share($data);
 	}

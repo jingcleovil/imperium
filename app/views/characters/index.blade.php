@@ -13,19 +13,23 @@
 		</ol>
 
 		<div class="panel panel-default">
-			<div class="panel-heading">Account Lists</div>
+			<div class="panel-heading">Character Lists</div>
 			<div class="panel-body">
 				
 				<table class="table table-striped table-bordered" id="grid">
 			    	<thead>
 						<tr>
-							<th width="5%">Modify</th>
+							<th width="5%">Show</th>
+							<th>Char ID</th>
 							<th>Account ID</th>
-							<th>Username</th>
-							<th>Email</th>
-							<th>Gender</th>
-							<th>Last IP</th>
-							<th>Last Login</th>
+							<th>Name</th>
+							<th>Str</th>
+							<th>Vit</th>
+							<th>Agi</th>
+							<th>Int</th>
+							<th>Dex</th>
+							<th>Luk</th>
+							<th>Points</th>
 							
 						</tr>
 					</thead>

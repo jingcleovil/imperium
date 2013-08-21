@@ -1,5 +1,3 @@
-@extend('layouts.master')
-
 @section('content')
 	
 	<div class="page-header">

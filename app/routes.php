@@ -1,37 +1,22 @@
 <?php
 
-// 
+ 
 Route::get('/','MainController@index');
 
-Route::get('mini/{type?}/{id?}','MiniController@minify');
-
 // Account Routes
-
 Route::get('accounts/login','AccountsController@login');
+Route::post('accounts/lists','AccountsController@lists');
 Route::resource('accounts', 'AccountsController');
 
-// Auth
+// Dashboard
+Route::resource('dashboard','DashboardController');
 
-Route::post('login', function()
-{
-	$user = array(
-		'userid' 	=> Input::get('username'),
-		'user_pass' => md5(Input::get('password'))
-	);
-
-	$data['response'] = false;
-	var_dump(Auth::attempt($user));
-
-	if (Auth::attempt($user) )
-	{
-		return Redirect::intended('dashboard');
-	}
-
-	//return Redirect::intended('accounts/login');
-
-	
-});
-
-
-
+// Strea Routes
 Route::resource('streams', 'StreamsController');
+
+// Characters Routes
+Route::resource('characters/lists', 'CharactersController@lists');
+Route::resource('characters', 'CharactersController');
+
+
+Route::resource('servers', 'ServersController');
