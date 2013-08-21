@@ -3,6 +3,13 @@
 class DashboardController extends BaseController {
 
 	protected $layout = "layouts.default";
+	protected $table;
+
+	public function __construct()
+	{
+		$this->table = new Dashboard;
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -10,7 +17,16 @@ class DashboardController extends BaseController {
 	 */
 	public function index()
 	{
+		$data['title'] = "Dashboard";
+
+		$data['totalAccounts'] 		= $this->table->totalAccounts();
+		$data['totalCharacters'] 	= $this->table->totalCharacters();
+		$data['totalGuilds'] 		= $this->table->totalGuilds();
+		$data['totalZeny'] 			= $this->table->totalZeny();
+		
 		$this->layout->content = View::make('dashboard.index');
+
+		View::share($data);
 	}
 
 	/**

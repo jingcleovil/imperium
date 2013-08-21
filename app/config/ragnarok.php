@@ -38,6 +38,7 @@ return array(
 		'Dashboard'		=> array('module' => 'dashboard', 	'icon' => 'time', 'access' => array(1,2,3)),
 		'Accounts'		=> array('module' => 'accounts', 	'icon' => 'user'),
 		'Characters'	=> array('module' => 'characters', 	'icon' => 'list'),
+		'CMS'			=> array('module' => 'cms', 	'icon' => 'list'),
 		'Server Info'	=> array('module' => 'servers', 		'icon' => 'tasks'),
 		'Donate'		=> array('module' => 'donation', 	'icon' => 'usd'),
 		'Purchase'		=> array('module' => 'itemall/purchase', 	'icon' => 'shopping-cart'),

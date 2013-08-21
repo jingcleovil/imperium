@@ -19,10 +19,10 @@
 				<table class="table table-striped table-bordered" id="grid">
 			    	<thead>
 						<tr>
-							<th width="5%">Show</th>
-							<th>Char ID</th>
-							<th>Account ID</th>
-							<th>Name</th>
+							<th width="3%">Show</th>
+							<th width="8%">Char ID</th>
+							<th width="8%">Account ID</th>
+							<th width="30%">Name</th>
 							<th>Str</th>
 							<th>Vit</th>
 							<th>Agi</th>
@@ -30,6 +30,7 @@
 							<th>Dex</th>
 							<th>Luk</th>
 							<th>Points</th>
+							<th width="15%">Job</th>
 							
 						</tr>
 					</thead>

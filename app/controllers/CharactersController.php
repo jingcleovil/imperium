@@ -124,6 +124,18 @@ class CharactersController extends BaseController {
 
 		foreach($results->get() as $res)
 		{
+			$job_name = "Unknown";
+			$job_class = Config::get('classes.Jobs');
+
+			if(isset($job_class[$res->class]))
+			{
+				$job_name = $job_class[$res->class];
+			}
+
+			// $data['jobs'] = $job_class[$];
+			// $data['res'] = $res->class;
+
+
 			$rows[] = array(
 				"<a href='' class='glyphicon glyphicon-search'></a>",
 				$res->char_id,
@@ -136,7 +148,7 @@ class CharactersController extends BaseController {
 				$res->dex,
 				$res->luk,
 				$res->status_point,
-				
+				$job_name
 				
 			);
 		}
@@ -145,6 +157,35 @@ class CharactersController extends BaseController {
 
 		$data['iTotalDisplayRecords'] = $total;
 		$data['iTotalRecords'] = $displayRecords;
+
+		return Response::json($data);
+	}
+
+	public function stats()
+	{
+		$job_class = Config::get('classes.Jobs');
+
+		$chars = array();
+		$series = array();
+
+		$characters = $this->table->stats();
+
+		foreach($characters as $char)
+		{
+			
+			if(isset($job_class[$char->class]))
+			{
+				$chars[] = array((string)$job_class[$char->class],(int)$char->total_class);
+
+				//$chars[] = (int)$char->total_class;
+				//$series[] = (string)$job_class[$char->class];
+			}
+		}
+
+		$data['data']['data'] = $chars;
+		$data['data']['series'] = $series;
+
+		//$data['chars'] = $chars;
 
 		return Response::json($data);
 	}

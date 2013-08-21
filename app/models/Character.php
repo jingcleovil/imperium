@@ -39,4 +39,16 @@ class Character extends Eloquent {
 		return $table;
 	}
 
+	public function stats()
+	{
+		$table = DB::table('char')
+					->select(DB::raw('count(*) as total_class, class'))
+					->where('class','>',1)
+					->having('total_class','>',100)
+					->orderBy('total_class','desc')
+					->groupBy('class')
+					->get();
+
+		return $table;
+	}
 }

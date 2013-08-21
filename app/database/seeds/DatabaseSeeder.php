@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder {
 		$this->call('StreamsTableSeeder');
 		$this->call('CharactersTableSeeder');
 		$this->call('ServersTableSeeder');
+		$this->call('CmsTableSeeder');
+		$this->call('ItemmallsTableSeeder');
 	}
 
 }

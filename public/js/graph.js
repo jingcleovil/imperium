@@ -1,61 +1,43 @@
-$(function () {
-    $('#container').highcharts({
+var characterStats = function() {
+
+    var option = {
         chart: {
-            type: 'areaspline'
+            type: 'pie',
+            backgroundColor:'rgba(255, 255, 255, 0.1)'
         },
         title: {
-            text: 'Average User This Weeks'
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'left',
-            verticalAlign: 'top',
-            x: 150,
-            y: 100,
-            floating: true,
-            borderWidth: 1,
-            backgroundColor: '#FFFFFF'
+            text: ''
         },
         xAxis: {
-            categories: [
-                'Monday',
-                'Tuesday',
-                'Wednesday',
-                'Thursday',
-                'Friday',
-                'Saturday',
-                'Sunday'
-            ],
-            plotBands: [{ // visualize the weekend
-                from: 4.5,
-                to: 6.5,
-                color: 'rgba(68, 170, 213, .2)'
-            }]
-        },
-        yAxis: {
-            title: {
-                text: 'Fruit units'
-            }
-        },
-        tooltip: {
-            shared: true,
-            valueSuffix: ' units'
-        },
+                categories: [],
+                title: {
+                    text: null
+                }
+            },
         credits: {
             enabled: false
         },
-        plotOptions: {
-            areaspline: {
-                fillOpacity: 0.5
-            }
-        },
-        series: [{
-            name: 'Jinggo',
-            data: [3, 4, 3, 5, 4, 10, 12],
-            showLegend: false
-        }]
-    });
+        series: []
+    };
 
-    
+    //$('#characterStats').highcharts();
+
+    $.ajax({
+        url: root + '/characters/stats',
+        dataType: 'json',
+        success: function(data)
+        {
+            option.series[0]                = data.data;
+            option.series[0].showInLegend   = true;
+            option.xAxis.categories         = data.data.series;
+        
+            $('#characterStats').highcharts(option);
+        }
+    })
+}
+
+
+$(function () {
+    characterStats();
 });
     
