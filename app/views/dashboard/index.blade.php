@@ -27,6 +27,16 @@
 							Zeny
 						</li>
 					</ul>
+					<ul class="list-group">
+						<li class="list-group-item">
+							<span class="badge">{{ number_format($totalAccounts) }}</span>
+							Online Accounts
+						</li>
+						<li class="list-group-item">
+							<span class="badge">{{ number_format($totalAccounts) }}</span>
+							Online Accounts
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
