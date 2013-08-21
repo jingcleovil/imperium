@@ -1,30 +1,37 @@
-<?php if(!isset($title)) $title= "Home Page"?>
+<?php if(!isset($title)) $title= Config::get('ragnarok.siteName')?>
 <!DOCTYPE html>
 <html>
     <head>
       	<title>{{ $title }}</title>
       	<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        {{ stylesheet() }}
+
+        {{ stylesheet('bootstrap.min.css') }}
+        {{ stylesheet('default.css') }}
 
         {{ script('vendor/yepnope.js') }}
 
     </head>
     <body>
-        <div class="preloader"></div>
-        <div class="wrapper">
-    	
-            <div class="sidebar">
-                @include('widget.logo')
-                @section('sidebar')
-                @show
+        
+        <div class="row row-main">
+            
+            <div class="col-xs-2 col-md-2 col-sidebar">
+                
+                @include('main.logo')
+
+                @include('main.nav')
+
             </div>
 
-            <div class="content">
-    		  @yield('content')
+            <div class="col-xs-10 col-md-10 col-main">
+                
+               @yield('content')
+
             </div>
-        
         </div>
+
+
 
         <script type="text/javascript">
 
@@ -37,7 +44,7 @@
                     }
                     else
                     {
-                        yepnope('{{asset('js/app.js')}}?' + Math.random() );
+                        yepnope('{{asset('js/script.js')}}?' + Math.random() );
                     }
                 
                 }

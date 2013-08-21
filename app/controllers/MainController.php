@@ -6,7 +6,7 @@ class MainController extends BaseController {
 
 	public function index()
 	{
-		$data['title'] 	= "Welcome to Page";
+		$data['title'] 	= "Welcome to Page | ".Config::get('ragnarok.siteTitle');
 		$data['module'] = "main";
 
 		$this->layout->content = View::make('main/index');

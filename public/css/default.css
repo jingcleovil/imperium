@@ -1,0 +1,70 @@
+body, html {
+	height: 100%;
+	background: #f9f9f9;
+	font-family: "Segoe UI", "Sans serif";
+}
+
+hr {
+	border-top: 1px solid #158570;
+	border-bottom: 1px solid #1a9f85;
+}
+
+.col-main {
+	padding-right: 30px;
+}
+
+.row-main {
+	height: 100%;
+}
+
+.col-sidebar {
+	background: #1abc9c;
+	height: 100%;
+	padding: 0;
+}
+
+.logo {
+	text-align: center;
+	color: #fff;
+	text-shadow: 1px 1px 1px #1a9f85;
+}
+
+.logo h1 {
+	font-size: 32px;
+}
+
+.logo span {
+	display: block;
+	font-size: 15px;
+}
+
+.navigation li span.head {
+	text-align: center;
+	display: block;
+	color: #fff;
+	font-weight: bolder;
+	padding: 5px 0;
+	margin: 5px 0;
+	/*border-top: 1px dotted #1cc8a6;*/
+	border-bottom: 1px dotted #1cc8a6;
+}
+
+.navigation li {
+	text-indent: 10px;
+}
+
+.navigation li a {
+	color: #fff;
+	text-shadow: 1px 1px 1px #1a9f85;
+	font-size: 15px;
+	padding: 5px 20px;
+}
+
+.navigation li a:hover,
+.navigation li.active a {
+	background: #189b82;
+}
+
+.page-title h3 {
+	color: #127763;
+}

@@ -17,18 +17,18 @@ class AccountsController extends BaseController {
 	
 	public function create()
 	{
-		// $accounts = Accounts::where('account_id','>',1)->get()->first()->toArray();
-		// echo "<pre>";
-		// print_r($accounts);
-		// exit;
-
-		$data['title'] 	= "Register Account";
-		$data['ptitle'] = "Register Account";
-		$data['stitle'] = "Please read our Terms of Service (ToS) before registering for an account, to ensure that you understand the rules of holding an account with our private Ragnarok Online game server.";
-		$data['module'] = "create";
-
+		$data['page_title'] = "Create";
 
 		$this->layout->content = View::make('accounts.create');
+
+		View::share($data);
+	}
+
+	public function login()
+	{
+		$data['page_title'] = "Create";
+
+		$this->layout->content = View::make('accounts.login');
 
 		View::share($data);
 	}
@@ -135,16 +135,5 @@ class AccountsController extends BaseController {
 		//
 	}
 
-	public function login()
-	{
-		$data['title'] 	= "Login";
-		$data['ptitle'] = "Login";
-		$data['stitle'] = "";
-		$data['module'] = "login";
-
-		$this->layout->content = View::make('accounts.login');
-
-		View::share($data);
-	}
 
 }

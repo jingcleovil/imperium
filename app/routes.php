@@ -32,3 +32,6 @@ Route::post('login', function()
 	
 });
 
+
+
+Route::resource('streams', 'StreamsController');
