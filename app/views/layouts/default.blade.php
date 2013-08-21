@@ -21,7 +21,7 @@
         
         <div class="main-wrapper">
     
-            <div class="left-panel col-lg-2 col-md-3 col-sm-3 col-xs-12 padding-none">
+            <div class="left-panel col-lg-2 col-md-3 col-sm-3 col-xs-3 hidden-xs navigation sidebar-offcanvas" role="navigation">
                 
 
                 @include('main.logo')
