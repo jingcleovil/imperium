@@ -63,7 +63,34 @@ class StreamsController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		$stream = new Stream;
+
+		$share = Input::get('share');
+
+		$db['s_stream'] = $share;
+		$db['s_created'] =  date('Y-m-d H:i:s');
+		$db['s_updated'] =  date('Y-m-d H:i:s');
+		$db['s_accountid'] =  Auth::user()->account_id;
+
+		$sid = DB::table('gcp_stream')->insertGetId($db);
+
+		$stream->s_stream = $share;
+		$stream->s_created = date('Y-m-d H:i:s');
+		$stream->s_updated = date('Y-m-d H:i:s');
+		$stream->s_accountid = Auth::user()->account_id;
+
+		//$sid = $stream->save()->insertGetId();
+
+		$data['action'] = "share_fails";
+
+		if($share)
+		{
+			$db['streams'] = $this->table->read(array('sid','=',$sid),0,10,array("s_updated"=>"desc"))->get();
+			$data['action'] = "share_success";
+			$data['content'] = (string) View::make('streams.post',$db);
+		}
+		
+		return Response::json($data);
 	}
 
 	/**

@@ -3,13 +3,13 @@
 	<div class="form-wrapper margin-tb">
 	
 		<div class="row">
-			{{ Form::open(array('url'=>'streams/store','class'=>'form')) }}
+			{{ Form::open(array('url'=>'streams','class'=>'form')) }}
 				
 				<div class="col-md-12">
 					<div class="panel panel-default">
 						
 						<div class="panel-body panel-post">
-							<textarea placeholder="Write post here..."></textarea>
+							<textarea placeholder="Write post here..." name="share"></textarea>
 						</div>
 
 						<div class="panel-footer clearfix">
@@ -23,7 +23,7 @@
 		
 		<div class="row">
 	
-			<div class="col-md-12">
+			<div class="col-md-12" id="share-loader">
 
 				@foreach($streams as $stream)
 				

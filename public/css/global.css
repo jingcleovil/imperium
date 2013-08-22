@@ -252,3 +252,7 @@ h1 .glyphicon {font-size: 22px;}
 		width: 50%; /* 6 columns */
 	}
 }
+
+.new-stream {
+	display: none
+}

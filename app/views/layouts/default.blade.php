@@ -70,14 +70,13 @@
                 callback: function(url, result, key) {
 
                     yepnope('{{ asset('js/bootstrap.min.js') }}');
-                    yepnope('{{ asset('js/script.js') }}');
+                    yepnope('{{ asset('js/script.js') }}?v=3');
 
                     if(window.jQuery) {
                        @section('js')
 
                        @show
                     }
-                    
 
                     $('[data-toggle=offcanvas]').click(function(e) {
                         e.preventDefault();
