@@ -13,7 +13,7 @@
 					</div>
 
 					<div class="panel-footer clearfix">
-						<button class="pull-right btn btn-sm btn-primary">Post</button>
+						<button class="pull-right btn btn-sm btn-primary">Share</button>
 					</div>
 				</div>
 			</div>
@@ -48,7 +48,7 @@
 									@foreach($comments as $comment)
 
 					          		<div class="media">
-					            		<a class="pull-left stream-profile" href="#" style="width: 64px; height: 64px;">
+					            		<a class="pull-left comment-profile" href="#" style="width: 38px; height: 38px;">
 							   				<span class="glyphicon glyphicon-user"></span>
 							      			<!-- <img class="media-object" data-src="" alt="Photo" src="" style="width: 64px; height: 64px;"> -->
 							    		</a>
@@ -59,6 +59,16 @@
 					          		</div>
 
 					          		@endforeach
+
+					          		<div class="media">
+					            		<a class="pull-left comment-profile" href="#" style="width: 38px; height: 38px;">
+							   				<span class="glyphicon glyphicon-user"></span>
+							      			<!-- <img class="media-object" data-src="" alt="Photo" src="" style="width: 64px; height: 64px;"> -->
+							    		</a>
+					            		<div class="media-body">
+					              			<input type="text" class="form-control"/>
+					            		</div>
+					          		</div>
 
 					          		
 					        	</div>

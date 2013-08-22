@@ -189,12 +189,17 @@ h1 .glyphicon {font-size: 22px;}
 	color: #222;
 }
 
-.stream-profile {
+.stream-profile, 
+.comment-profile {
 	font-size: 45px;
 	text-align: center;
 	background: #f2f2f2;
 	color: gray;
 	border-radius: 3px;
+}
+
+.comment-profile {
+	font-size: 28px;
 }
 
 .panel-stream hr {
