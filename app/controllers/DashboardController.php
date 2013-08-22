@@ -8,6 +8,8 @@ class DashboardController extends BaseController {
 	public function __construct()
 	{
 		$this->table = new Dashboard;
+
+		$this->beforeFilter('checkModule');
 	}
 
 	/**

@@ -12,11 +12,11 @@ class CreateDonationsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('donations', function(Blueprint $table) {
+		Schema::create('icp_donations', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('name');
-			$table->int('status');
-			$table->int('source');
+			$table->smallInteger('status');
+			$table->smallInteger('source');
 			$table->timestamps();
 		});
 	}
@@ -28,7 +28,7 @@ class CreateDonationsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('donations');
+		Schema::drop('icp_donations');
 	}
 
 }

@@ -9,6 +9,8 @@ class AccountsController extends BaseController {
 
 	public function __construct()
 	{
+		$this->beforeFilter('checkModule');
+		
 		$this->module = "Accounts";
 		$this->table = new Accounts;
 		$this->layout = "layouts.".Config::get('ragnarok.DefaultTheme');
@@ -46,7 +48,8 @@ class AccountsController extends BaseController {
 
 	public function login()
 	{
-		$data['page_title'] = "Create";
+		$data['title'] = "Login";
+		$data['icon'] = "lock";
 
 		$this->layout->content = View::make('accounts.login');
 
@@ -262,5 +265,32 @@ class AccountsController extends BaseController {
 		$data['iTotalRecords'] = $displayRecords;
 
 		return Response::json($data);
+	}
+
+	public function auth()
+	{
+		$username = trim(Input::get('userid'));
+		$password = trim(Input::get('user_pass'));
+
+		if(Config::get('ragnarok.MD5') === true)
+			$password = md5($password);
+
+		$account = Accounts::where('userid',$username)->where('user_pass',$password)->get()->toArray();
+
+		if(!$account)
+		{
+			return Redirect::to('accounts/login')
+						->with('login_errors', true);
+		}
+		else
+		{
+			
+			$user = User::find($account[0]['account_id']);
+
+			Auth::login($user);
+
+			return Redirect::to('dashboard');
+
+		}
 	}
 }

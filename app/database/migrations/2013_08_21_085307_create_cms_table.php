@@ -12,9 +12,12 @@ class CreateCmsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('cms', function(Blueprint $table) {
+		Schema::create('icp_cms', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('id');
+			$table->string('page_title',64);
+			$table->text('page_content');
+			$table->smallInteger('type');
+			$table->integer('created_by');
 			$table->timestamps();
 		});
 	}
@@ -26,7 +29,7 @@ class CreateCmsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('cms');
+		Schema::drop('icp_cms');
 	}
 
 }

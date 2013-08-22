@@ -114,8 +114,6 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
-		'Jinggo\Minifier\JSMinServiceProvider',
-		'Jinggo\Minifier\MinifyServiceProvider',
 		'Way\Console\GuardLaravelServiceProvider'
 	),
 

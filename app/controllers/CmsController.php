@@ -2,7 +2,26 @@
 
 class CmsController extends BaseController {
 
-	protected $layout = "layouts.default";
+	protected $table;
+	protected $module;
+	protected $title;
+
+	public function __construct()
+	{
+		$this->module = "Cms";
+		$this->table = new Cms;
+		$this->layout = "layouts.".Config::get('ragnarok.DefaultTheme');
+
+		$menuItems = Config::get('ragnarok.MenuItems');
+
+		if(isset($menuItems[$this->module]))
+		{
+			$module 	  = $menuItems[$this->module];
+			$this->module = $module['module'];
+		}
+
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -11,8 +30,11 @@ class CmsController extends BaseController {
 	public function index()
 	{
 		$data['title'] = "Content Management System";
+		$data['module'] = strtolower($this->module);
 		
-		$this->layout->content = View::make('cms.index',$data);
+		$this->layout->content = View::make('cms.index');
+
+		View::share($data);
 	}
 
 	/**
@@ -77,6 +99,41 @@ class CmsController extends BaseController {
 	public function destroy($id)
 	{
 		//
+	}
+
+	public function lists()
+	{
+		$displayRecords = Input::get('iDisplayLength');
+		$iDisplayStart	= Input::get('iDisplayStart');
+		$sSearch 		= Input::get('sSearch');
+
+		$rows 			= [];
+		$filter			= [];
+		$data['aaData'] = [];
+
+		if($sSearch)
+		{
+			$filter = ['page_title','like',"%$sSearch%"];
+		}
+
+		$results 	= $this->table->read($filter,$iDisplayStart,$displayRecords,array('updated_at'=>'desc'));
+		$total 		= $this->table->read($filter)->count();
+
+		foreach($results->get() as $res)
+		{
+			$rows[] = array(
+				"<a href=\"".url('cms/'.$res->account_id)."\" class='glyphicon glyphicon-search'></a>",
+				$res->page_title,
+				$res->created_on
+			);
+		}
+
+		$data['aaData'] = $rows;
+
+		$data['iTotalDisplayRecords'] = $total;
+		$data['iTotalRecords'] = $displayRecords;
+
+		return Response::json($data);
 	}
 
 }

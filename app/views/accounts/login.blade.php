@@ -1,36 +1,61 @@
-@extend('layouts.master')
-
 @section('content')
 
-	<div class="page-header">
-	    <h3>Create Account <small>Create your account and you're ready to go!</small></h3>
-	</div>
+<h1><span class="glyphicon glyphicon-home"></span> {{ $title }}</h1>
 
-	<form>
-		<div class="row">
-			<div class="col-md-6">
-				<div class="form-group">
-					<label for="exampleInputEmail1">Your Username</label>
-					<input type="text" class="form-control" id="username" placeholder="Username" name="username">
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group">
-					<label for="exampleInputEmail1">Your Password</label>
-					<input type="password" class="form-control" id="password" placeholder="password" name="username">
-				</div>
-			</div>
-		</div>
-
-	
-		<div class="row">
-			<div class="col-md-12">
-				<button type="submit" class="btn btn-primary">Login</button>
-			</div>
-		</div>
+<div class="form-wrapper margin-tb">
+	<div class="row">
 		
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">Login Your Account Here</div>
+				<div class="panel-body">
 
-	</form>
+
+					<div class="col-md-6">
+						
+						{{ Form::open(array('url'=>'accounts/auth')) }}
+							
+							@if (Session::has('login_errors'))
+								<div class="alert alert-danger">
+									Username or password incorrect.
+								</div>
+					  		@endif
+
+							<div class="form-group">
+								<label for="exampleInputEmail1">Username</label> 
+								<input type="text" class="form-control" placeholder="Username" name="userid">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputPassword1">Password</label> 
+								<input type="password" class="form-control" placeholder="Password" name="user_pass">
+							</div>
+							
+							<button type="submit" class="btn btn-primary">Log Me In</button>
+
+						{{ Form::close() }}
+
+					</div>
+
+				</div> 
+			</div>
+		</div>
+
+	</div>
+</div>
 
 @stop
 
+@section('var')
+	
+@stop;
+
+@section('css')
+	
+@stop
+
+@section('js')
+
+	yepnope('{{ asset('js/highcharts.js') }}');
+	yepnope('{{ asset('js/graph.js') }}?v=2');
+
+@stop

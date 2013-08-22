@@ -5,12 +5,16 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
+	
+	protected $primaryKey 	= 'account_id';
+
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'users';
+	protected $table = 'login';
+
 
 	/**
 	 * The attributes excluded from the model's JSON form.

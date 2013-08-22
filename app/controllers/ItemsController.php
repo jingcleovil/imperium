@@ -9,6 +9,8 @@ class ItemsController extends BaseController {
 
 	public function __construct()
 	{
+		$this->beforeFilter('checkModule');
+		
 		$this->table = new Items;
 
 		$this->module = "itemmall";
