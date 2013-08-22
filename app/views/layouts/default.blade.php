@@ -80,7 +80,6 @@
                     $('[data-toggle=offcanvas]').click(function(e) {
                         e.preventDefault();
                         $('.row-offcanvas').toggleClass('active');
-                        $('.navigation').show();
                     });
 
                 }
