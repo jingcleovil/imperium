@@ -32,8 +32,14 @@ class StreamsController extends BaseController {
 	 */
 	public function index()
 	{
+		$stream = new Stream;
+
 		$data['title'] = $this->module;
+
 		$data['module'] = strtolower($this->module);
+
+		$data['streams'] = $this->table->read(null,0,10,array("s_updated"=>"desc"))->get();
+
 
 		$this->layout->content = View::make('streams.index');
 	

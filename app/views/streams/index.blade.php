@@ -8,8 +8,8 @@
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					
-					<div class="panel-body">
-						<textarea class="form-control"></textarea>
+					<div class="panel-body panel-post">
+						<textarea></textarea>
 					</div>
 
 					<div class="panel-footer clearfix">
@@ -22,52 +22,52 @@
 		<div class="row">
 	
 			<div class="col-md-12">
+
+				@foreach($streams as $stream)
 				
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<div class="media">
-			   			<a class="pull-left" href="#">
-			      			<img class="media-object" data-src="" alt="Photo" src="" style="width: 64px; height: 64px;">
-			    		</a>
-			    	
-			        	<div class="media-body">
-			          		<h4 class="media-heading">Media heading</h4>
-			          		Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-			          		
-			          		<div class="media">
-			            		<a class="pull-left" href="#">
-			              			<img class="media-object" data-src="" alt="Photo" src="" style="width: 64px; height: 64px;">
-			            		</a>
-			            		<div class="media-body">
-			              			<h4 class="media-heading">Media heading</h4>
-			              			Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-			            		</div>
-			          		</div>
+					<div class="panel panel-default panel-stream">
+						<div class="panel-body">
+							<div class="media">
+					   			<a class="pull-left stream-profile" href="#" style="width: 64px; height: 64px;">
+					   				<span class="glyphicon glyphicon-user"></span>
+					      			<!-- <img class="media-object" data-src="" alt="Photo" src="" style="width: 64px; height: 64px;"> -->
+					    		</a>
+					    	
+					        	<div class="media-body">
+					          		<h5 class="media-heading"><a href="">{{ $stream->u_nickname }}</a></h5>
 
-			          		<div class="media">
-			            		<a class="pull-left" href="#">
-			              			<img class="media-object" data-src="" alt="Photo" src="" style="width: 64px; height: 64px;">
-			            		</a>
-			            		<div class="media-body">
-			              			<h4 class="media-heading">Media heading</h4>
-			              			Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-			            		</div>
-			          		</div>
-			        	</div>
-			  		</div>
+					          		{{ $stream->s_stream }}
+					          		
+									
+									<?php 
+										$comment = new Comments;
+										$comments = $comment->getComments($stream->sid);
+									?>
+									<hr/>
 
-					<div class="media">
-			   			<a class="pull-left" href="#">
-			      			<img class="media-object" data-src="" alt="Photo" src="" style="width: 64px; height: 64px;">
-			    		</a>
+									@foreach($comments as $comment)
 
-			    		<div class="media-body">
-			          		<h4 class="media-heading">Media heading</h4>
-			          		Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-			          	</div>
-			    	</div>
+					          		<div class="media">
+					            		<a class="pull-left stream-profile" href="#" style="width: 64px; height: 64px;">
+							   				<span class="glyphicon glyphicon-user"></span>
+							      			<!-- <img class="media-object" data-src="" alt="Photo" src="" style="width: 64px; height: 64px;"> -->
+							    		</a>
+					            		<div class="media-body">
+					              			<h5 class="media-heading"><a href="">{{ $comment->u_nickname }}</a></h5>
+					              			{{ $comment->c_comment }}
+					            		</div>
+					          		</div>
+
+					          		@endforeach
+
+					          		
+					        	</div>
+					  		</div>
+					
+						</div>
 					</div>
-				</div>
+
+				@endforeach
 
 			</div>
 

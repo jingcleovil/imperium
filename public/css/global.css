@@ -173,3 +173,32 @@ h1 .glyphicon {font-size: 22px;}
 	min-height: 1000px;
 }
 
+.panel-post {
+	padding: 2px;
+}
+
+.panel-post textarea {
+	border: none;
+	outline: none !important;
+	padding: 5px;
+	font-size: 14px;
+	width: 100%;
+	text-shadow: none;
+	resize: none;
+	font-weight: normal;
+	color: #222;
+}
+
+.stream-profile {
+	font-size: 45px;
+	text-align: center;
+	background: #f2f2f2;
+	color: gray;
+	border-radius: 3px;
+}
+
+.panel-stream hr {
+	margin: 18px 0;
+	border-top: none;
+	border-bottom: 1px dotted #ddd;
+}
