@@ -3,13 +3,13 @@
 <div class="form-wrapper margin-tb">
 	<div class="row">
 		
-		<div class="col-md-12">
+		<div class="col-md-6">
 			<div class="panel panel-default">
 				<div class="panel-heading">Login Your Account Here</div>
 				<div class="panel-body">
 
 
-					<div class="col-md-6">
+					<div class="col-md-12">
 						
 						{{ Form::open(array('url'=>'accounts/auth')) }}
 							
@@ -28,11 +28,28 @@
 								<input type="password" class="form-control" placeholder="Password" name="user_pass">
 							</div>
 							
-							<button type="submit" class="btn btn-primary">Log Me In</button>
+							<button type="submit" class="btn btn-success">Log Me In</button>
 
 						{{ Form::close() }}
 
 					</div>
+
+				</div> 
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">Or Connect With Facebook</div>
+				<div class="panel-body">
+
+
+					<div class="col-md-12">
+						
+						<a href="" class="facebook"></a>						
+
+					</div>
+
 
 				</div> 
 			</div>

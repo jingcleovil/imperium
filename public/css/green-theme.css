@@ -67,4 +67,13 @@ h1 {
 .list-group-item.active:hover, 
 .list-group-item.active:focus {
 	background: #117a66;
-	border: 1px solid #117a66;}
+	border: 1px solid #117a66; }
+
+.btn-success {
+	background: #16a085;
+	border: 1px solid #29947f;
+}
+
+.btn-success:hover {
+	background: #1abc9c;
+}

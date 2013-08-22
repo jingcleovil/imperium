@@ -3,7 +3,7 @@
 	<div class="form-wrapper margin-tb">
 	
 		<div class="row">
-			{{ Form::open(array('url'=>'streams/store')) }}
+			{{ Form::open(array('url'=>'streams/store','class'=>'form')) }}
 				
 				<div class="col-md-12">
 					<div class="panel panel-default">
@@ -13,7 +13,7 @@
 						</div>
 
 						<div class="panel-footer clearfix">
-							<button type="submit" class="pull-right btn btn-sm btn-primary">Share</button>
+							<button type="submit" class="pull-right btn btn-sm btn-success">Share</button>
 						</div>
 					</div>
 				</div>

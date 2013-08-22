@@ -14,7 +14,7 @@
 				<table class="table table-striped table-bordered" id="grid">
 			    	<thead>
 						<tr>
-							<th width="3%">Show</th>
+							<th width="3%">#</th>
 							<th width="8%">Char ID</th>
 							<th width="8%">Account ID</th>
 							<th width="30%">Name</th>

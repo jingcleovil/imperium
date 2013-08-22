@@ -212,6 +212,14 @@ h1 .glyphicon {font-size: 22px;}
 	color: #fff;
 }
 
+.facebook {
+	width: 285px;
+	height: 54px;
+	display: block;
+	background: url(../images/facebook.png) no-repeat;
+	margin: 62px auto;
+}
+
 @media screen and (max-width: 768px) {
 	.row-offcanvas {
 		position: relative;
