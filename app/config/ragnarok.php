@@ -36,6 +36,7 @@ return array(
 
 		'Home'			=> array('module' => '/', 			'icon' => 'home'),
 		'Dashboard'		=> array('module' => 'dashboard', 	'icon' => 'time'),
+		'Streams'		=> array('module' => 'streams', 	'icon' => 'globe'),
 		'Accounts'		=> array('module' => 'accounts', 	'icon' => 'user'),
 		'Characters'	=> array('module' => 'characters', 	'icon' => 'list'),
 		'CMS'			=> array('module' => 'cms', 		'icon' => 'list'),
@@ -83,7 +84,7 @@ return array(
 			'level' => AccountLevel::HIGHGM
 		),
 		99 => array(
-			'name'  => "Admin",
+			'name'  => "Administrator",
 			'level' => AccountLevel::ADMIN
 		)
 	),
@@ -104,6 +105,9 @@ return array(
 		'dashboard' => array(
 			"index"	=> AccountLevel::NORMAL
 		),
+		'streams' => array(
+			"index"	=> AccountLevel::NORMAL,
+		),
 		'accounts' => array(
 			"index"	=> AccountLevel::ADMIN,
 			"login"	=> AccountLevel::UNAUTH,
@@ -116,6 +120,7 @@ return array(
 		'cms' => array(
 			"index"	=> AccountLevel::ADMIN,
 		),
+		
 		'items' => array(
 			"index"	=> AccountLevel::ADMIN,
 			"purchase"	=> AccountLevel::NORMAL,

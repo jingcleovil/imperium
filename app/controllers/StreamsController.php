@@ -2,7 +2,28 @@
 
 class StreamsController extends BaseController {
 
-	protected $layout = "layouts.master";
+	protected $layout;
+	protected $table;
+	protected $module;
+	protected $title;
+
+	public function __construct()
+	{
+		$this->beforeFilter('checkModule');
+		
+		$this->module = "Streams";
+		$this->table = new Stream;
+		$this->layout = "layouts.".Config::get('ragnarok.DefaultTheme');
+
+		$menuItems = Config::get('ragnarok.MenuItems');
+
+		if(isset($menuItems[$this->module]))
+		{
+			$module 	  = $menuItems[$this->module];
+			$this->module = $module['module'];
+		}
+
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -11,7 +32,8 @@ class StreamsController extends BaseController {
 	 */
 	public function index()
 	{
-		$data['page_title'] = "";
+		$data['title'] = $this->module;
+		$data['module'] = strtolower($this->module);
 
 		$this->layout->content = View::make('streams.index');
 	
