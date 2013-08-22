@@ -207,3 +207,7 @@ h1 .glyphicon {font-size: 22px;}
 	border-top: none;
 	border-bottom: 1px dotted #ddd;
 }
+
+.toggler a {
+	color: #fff;
+}

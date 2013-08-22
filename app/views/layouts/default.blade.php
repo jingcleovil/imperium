@@ -27,7 +27,6 @@
     
             <div class="left-panel col-lg-2 col-md-3 col-sm-3 col-xs-3 hidden-xs navigation sidebar-offcanvas" role="navigation">
                 
-
                 @include('main.logo')
                 @include('main.profile')
                 @include('main.menu')
@@ -37,8 +36,13 @@
             <!--left-panel -->
             <div class="right-panel col-lg-10 col-md-9  col-sm-9 col-xs-12 padding-none wrapper-min-height">
                 <div>
+                    <h1 class="visible-xs toggler">
+                        <a href=""><span class="glyphicon glyphicon-align-justify"></span></a> {{ $title }}
+                    </h1>
+                    <h1 class="hidden-xs">
+                        <span class="glyphicon glyphicon-home"></span> {{ $title }}
+                    </h1>
                     @yield('content')
-                    
                 </div>
             </div>
           <!--right-panel -->

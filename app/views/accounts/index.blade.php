@@ -1,10 +1,5 @@
 @section('content')
 	
-	<?php 
-		if(!isset($icon)) $icon = "home";
-	?>
-
-	<h1><span class="glyphicon glyphicon-$icon"></span> {{ $title }}</h1>
 
 	<div class="col-md-12">
 		

@@ -2,10 +2,6 @@
 
 @section('content')
 
-	<div class="page-header">
-	    <h3>Create Account <small>Create your account and you're ready to go!</small></h3>
-	</div>
-
 	<form>
 		<div class="row">
 			<div class="col-md-6">

@@ -1,7 +1,4 @@
-@section('content')
-
-	<h1><span class="glyphicon glyphicon-home"></span> {{ $title }}</h1>
-	
+@section('content')	
 	<div class="col-md-12">
 		
 		<ol class="breadcrumb">
