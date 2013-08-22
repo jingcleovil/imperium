@@ -5,7 +5,7 @@ class Storage extends Eloquent {
 	protected $table 		= 'storage';
 	public $timestamps 		= false;
 
-	public function read($where=array(),$skip=0,$take=10,$orderby=array(),$select=array()) 
+	public function read($where=array(),$skip=0,$take=10,$orderby=array(),$select=array(),$id=null) 
 	{
 		$table = DB::table($this->table)
 					->skip($skip)
@@ -16,11 +16,10 @@ class Storage extends Eloquent {
 						
 						if($where && is_array($where))
 						{
-							if(count($where) === 3)
-							{
-								$query->where($where[0],$where[1],$where[2]);
-							}
+							foreach($where as $w)
+								$query->where($w[0],$w[1],$w[2]);
 						}
+
 					});
 
 		if($orderby && is_array($orderby))

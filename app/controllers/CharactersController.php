@@ -104,7 +104,7 @@ class CharactersController extends BaseController {
 		//
 	}
 
-	public function lists()
+	public function lists($id=null)
 	{
 		$displayRecords = Input::get('iDisplayLength');
 		$iDisplayStart	= Input::get('iDisplayStart');

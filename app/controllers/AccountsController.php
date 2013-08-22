@@ -221,12 +221,12 @@ class AccountsController extends BaseController {
 
 		if($sSearch)
 		{
-			$filter = ['userid','like',"%$sSearch%"];
+			$filter[] = ['name_japanese','like',"%$sSearch%"];
 		}
 
 		if($account_id)
 		{
-			$filter = ['account_id','=',$account_id];
+			$filter[] = ['account_id','=',$account_id];
 		}
 
 		$results 	= $this->table->read($filter,$iDisplayStart,$displayRecords,array('account_id'=>'desc'));
