@@ -45,7 +45,12 @@ h1 {
 
 .navigation li a:hover {
 	text-decoration: none;
-	color: #21f4c3;
+	color: #117a66;
+	text-shadow: none;
+}
+
+.navigation li a.active:hover {
+	color: #fff;
 }
 
 .logo {
@@ -53,3 +58,9 @@ h1 {
 	padding: 3.4px 0;
 	border: none;
 }
+
+.list-group-item.active, 
+.list-group-item.active:hover, 
+.list-group-item.active:focus {
+	background: #117a66;
+	border: 1px solid #117a66;}
