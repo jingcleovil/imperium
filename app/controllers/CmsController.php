@@ -2,6 +2,7 @@
 
 class CmsController extends BaseController {
 
+	protected $layout = "layouts.default";
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -9,7 +10,7 @@ class CmsController extends BaseController {
 	 */
 	public function index()
 	{
-		//
+	
 	}
 
 	/**

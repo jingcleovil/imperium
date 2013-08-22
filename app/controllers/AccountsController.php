@@ -187,7 +187,7 @@ class AccountsController extends BaseController {
 				"<a href=\"".url('accounts/'.$res->account_id)."\" class='glyphicon glyphicon-search'></a>",
 				$res->account_id,
 				$res->userid,
-				$res->email,
+				"***@domain.com",
 				$res->sex === 'M' ? 'Male' : 'Female',
 				$res->last_ip,
 				$res->lastlogin

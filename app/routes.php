@@ -22,3 +22,9 @@ Route::resource('characters', 'CharactersController');
 
 // Items Routes
 Route::resource('items', 'ItemsController');
+
+// CMS Routes
+Route::resource('cms', 'CmsController');
+
+// Server Route
+Route::resource('servers', 'ServersController');
