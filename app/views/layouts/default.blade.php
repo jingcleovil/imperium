@@ -12,7 +12,7 @@
 
         {{ stylesheet('bootstrap.min.css') }}
         {{ stylesheet('global.css') }}
-        {{ stylesheet('green-theme.css') }}
+        {{ stylesheet('green-theme.css?v=1') }}
 
         @section('css')
         
