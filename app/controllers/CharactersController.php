@@ -106,6 +106,20 @@ class CharactersController extends BaseController {
 
 	public function lists($id=null)
 	{
+
+		if($id)
+		{
+			$filter[] = ['char.account_id','=',$id];
+
+			$data['chars'] = $this->table->read($filter)->get();
+
+			$content = View::make('characters.lists',$data);
+
+			$data['content'] = (string) $content;
+
+			return Response::json($data);
+		}
+
 		$displayRecords = Input::get('iDisplayLength');
 		$iDisplayStart	= Input::get('iDisplayStart');
 		$sSearch 		= Input::get('sSearch');
@@ -131,10 +145,6 @@ class CharactersController extends BaseController {
 			{
 				$job_name = $job_class[$res->class];
 			}
-
-			// $data['jobs'] = $job_class[$];
-			// $data['res'] = $res->class;
-
 
 			$rows[] = array(
 				"<a href='' class='glyphicon glyphicon-search'></a>",
@@ -176,9 +186,6 @@ class CharactersController extends BaseController {
 			if(isset($job_class[$char->class]))
 			{
 				$chars[] = array((string)$job_class[$char->class],(int)$char->total_class);
-
-				//$chars[] = (int)$char->total_class;
-				//$series[] = (string)$job_class[$char->class];
 			}
 		}
 
@@ -189,5 +196,4 @@ class CharactersController extends BaseController {
 
 		return Response::json($data);
 	}
-
 }

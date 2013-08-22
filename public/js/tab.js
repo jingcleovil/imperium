@@ -14,4 +14,23 @@ $(document).ready(function(){
 
 	})
 
+
+	$('[data-get=character]').click(function(e){
+		e.preventDefault();
+
+		var url = $(this).attr('href');
+		var dt = $(this).data('get');
+
+		
+
+		$.getJSON(url,function(data){
+			console.log(data.content)
+
+			$('[data-view='+dt+']').html(data.content);
+		});
+
+
+
+	})
+
 })

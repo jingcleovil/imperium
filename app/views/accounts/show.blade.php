@@ -18,7 +18,7 @@
 				<a href="">Account Storage</a>
 			</li>
 			<li>
-				<a href="">Characters</a>
+				<a href="{{ url('characters/lists/'.$user['account_id']) }}" data-get="character">Characters</a>
 			</li>
 		</ul>
 	</div>
@@ -128,7 +128,7 @@
 		<!-- Characters Pane -->
 		<div class="col-md-12 tab-pane">
 			<div class="panel">
-			  	<div class="panel-body">
+			  	<div class="panel-body" data-view="character">
 			  		
 			  	</div>
 			</div>
@@ -149,7 +149,7 @@
 
 @section('js')
 
-	yepnope('{{ asset('js/tab.js') }} ')
+	yepnope('{{ asset('js/tab.js') }}?=v1')
 	yepnope('{{ asset('js/jquery.dataTables.min.js') }} ')
 	yepnope('{{ asset('js/table.js') }}?v=1')
 	yepnope('{{ asset('js/ajax_modal.js') }}?v=1')

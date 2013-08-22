@@ -76,7 +76,6 @@ class AccountsController extends BaseController {
 		}
 
 
-
 		$rules = array(
 			'username'			=> 'required|unique:login,userid|not_in:super,admin',
 			'password'			=> 'required|between:'.$between,
