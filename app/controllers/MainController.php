@@ -6,7 +6,7 @@ class MainController extends BaseController {
 
 	public function index()
 	{
-		$data['title'] 	= "Imperium Control Panel (iCP)";
+		$data['title'] 	= "Imperium Control Panel";
 		$data['module'] = "main";
 
 		$this->layout->content = View::make('main.index');

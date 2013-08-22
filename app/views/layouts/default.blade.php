@@ -12,6 +12,7 @@
 
         {{ stylesheet('bootstrap.min.css') }}
         {{ stylesheet('global.css') }}
+        {{ stylesheet('green-theme.css') }}
 
         @section('css')
         
@@ -69,6 +70,7 @@
                 callback: function(url, result, key) {
 
                     yepnope('{{ asset('js/bootstrap.min.js') }}');
+                    yepnope('{{ asset('js/script.js') }}');
 
                     if(window.jQuery) {
                        @section('js')

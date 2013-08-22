@@ -3,18 +3,22 @@
 	<div class="form-wrapper margin-tb">
 	
 		<div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-default">
-					
-					<div class="panel-body panel-post">
-						<textarea placeholder="Write post here..."></textarea>
-					</div>
+			{{ Form::open(array('url'=>'streams/store')) }}
+				
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						
+						<div class="panel-body panel-post">
+							<textarea placeholder="Write post here..."></textarea>
+						</div>
 
-					<div class="panel-footer clearfix">
-						<button class="pull-right btn btn-sm btn-primary">Share</button>
+						<div class="panel-footer clearfix">
+							<button type="submit" class="pull-right btn btn-sm btn-primary">Share</button>
+						</div>
 					</div>
 				</div>
-			</div>
+
+			{{ Form::close() }}
 		</div>
 		
 		<div class="row">

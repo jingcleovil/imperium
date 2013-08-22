@@ -1,0 +1,43 @@
+html,body {
+	color: #fff;
+	background: #1abc9c;
+}
+
+h1 {
+	background: #505050;
+	color: #fff;
+}
+
+.profile {
+	background: #16a085;
+	border-bottom: 1px solid #29947f;
+	border-top: 1px solid #1cc2a1;
+}
+
+.profile .thumb {
+	background: #117a66;
+	border: 3px solid #1ab193;
+}
+
+.profile a {
+	color: #1fe6be;
+}
+
+.navigation {
+	background: #1abc9c;
+}
+
+.navigation li a {
+	color: #fff;
+	background: #1abc9c;
+	border-bottom: 1px solid #29947f;
+	border-top: 1px solid #1cc2a1;
+}
+
+.navigation li a.active {
+	background: #3d3d3d;
+}
+
+.logo {
+	background: #333;
+}
