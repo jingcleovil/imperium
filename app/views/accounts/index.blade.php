@@ -16,7 +16,7 @@
 				<table class="table table-striped table-bordered" id="grid">
 			    	<thead>
 						<tr>
-							<th width="5%">Show</th>
+							<th width="5%">#</th>
 							<th>Account ID</th>
 							<th>Username</th>
 							<th>Email</th>

@@ -34,3 +34,24 @@
 .sFilter input {
 	width: 220px;
 }
+
+table.dataTable tr.odd td.sorting_1 a,
+table.dataTable tr.even td.sorting_1 a
+{
+	color: #fff;
+}
+table.dataTable tr.odd td.sorting_1 {
+	background: #16a085;
+	border: 1px solid #16a085;
+	color: #fff;
+}
+
+table.dataTable tr.even td.sorting_1 {
+	background: #1abc9c;
+	border: 1px solid #16a085;
+	color: #fff;
+}
+
+.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
+
+}
