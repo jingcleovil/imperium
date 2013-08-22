@@ -8,6 +8,7 @@ Route::resource('dashboard','DashboardController');
 
 // Account Routes
 Route::get('accounts/login','AccountsController@login');
+Route::get('accounts/logout','AccountsController@logout');
 Route::post('accounts/lists','AccountsController@lists');
 Route::post('accounts/storage','AccountsController@storage');
 Route::post('accounts/auth','AccountsController@auth');

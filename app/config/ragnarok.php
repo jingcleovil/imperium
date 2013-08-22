@@ -47,6 +47,46 @@ return array(
 
 	),
 
+
+	/*
+	|--------------------------------------------------------------------------
+	| Group Settings
+	|--------------------------------------------------------------------------
+	|
+	| Do not modify settings below unless you know what you are doing.
+	|
+	*/
+
+	'Groups' => array(
+		0 => array(
+			'name'  => "Player",
+			'level' => AccountLevel::NORMAL
+		),
+		1 => array(
+			'name'  => "Super Player",
+			'level' => AccountLevel::NORMAL
+		),
+		2 => array(
+			'name'  => "Support",
+			'level' => AccountLevel::LOWGM
+		),
+		3 => array(
+			'name'  => "Script Manager",
+			'level' => AccountLevel::LOWGM
+		),
+		4 => array(
+			'name'  => "Event Manager",
+			'level' => AccountLevel::LOWGM
+		),
+		10 => array(
+			'name'  => "Law Enforcement",
+			'level' => AccountLevel::HIGHGM
+		),
+		99 => array(
+			'name'  => "Admin",
+			'level' => AccountLevel::ADMIN
+		)
+	),
 	/*
 	|--------------------------------------------------------------------------
 	| Access Settings
@@ -59,26 +99,26 @@ return array(
 
 	'Modules' => array(
 		'main'	=>	array(
-			"index"	=> Access::ANYONE
+			"index"	=> AccountLevel::NORMAL
 		),
 		'dashboard' => array(
-			"index"	=> Access::ADMIN
+			"index"	=> AccountLevel::NORMAL
 		),
 		'accounts' => array(
-			"index"	=> Access::ADMIN,
-			"login"	=> Access::UNAUTH,
-			"logout"=> Access::AUTH,
-			"auth" 	=> Access::ANYONE
+			"index"	=> AccountLevel::ADMIN,
+			"login"	=> AccountLevel::UNAUTH,
+			"logout"=> AccountLevel::NORMAL,
+			"auth" 	=> AccountLevel::ANYONE
 		),
 		'characters' => array(
-			"index"	=> Access::ADMIN,
+			"index"	=> AccountLevel::ADMIN,
 		),
 		'cms' => array(
-			"index"	=> Access::ADMIN,
+			"index"	=> AccountLevel::ADMIN,
 		),
 		'items' => array(
-			"index"	=> Access::ADMIN,
-			"purchase"	=> Access::ANYONE,
+			"index"	=> AccountLevel::ADMIN,
+			"purchase"	=> AccountLevel::NORMAL,
 		)
 	),
 

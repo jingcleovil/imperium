@@ -83,44 +83,6 @@ Route::filter('csrf', function()
 
 Route::filter('checkModule', function($route,$request)
 {
-	$path 		= explode('/',$request->path());
-	$modules 	= Config::get('ragnarok.Modules');
-	$module 	= $path[0];
-	$action 	= isset($path[1]) ? $path[1] : false;
+	return Access::checkAccess($request->path());
 
-	$auth_url  	= "accounts/login";
-	$redirect 	= false;
-
-	if(isset($modules[$module]))
-	{
-		$mod = $modules[$module];
-
-		if(isset($mod[$action]))
-		{
-			if(in_array($mod[$action],array("ADMIN","AUTH")))
-			{
-				$redirect = true;
-				if(Auth::check())
-						$redirect = false;
-			}
-		}
-		else
-		{
-			if(isset($mod['index']))
-			{
-				if(in_array($mod['index'],array("ADMIN","AUTH")))
-				{
-					$redirect = true;
-
-					if(Auth::check())
-						$redirect = false;
-				}
-			}
-		}
-	}
-
-	if($redirect)
-	{
-		return Redirect::to($auth_url);
-	}
 });
