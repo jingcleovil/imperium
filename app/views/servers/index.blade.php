@@ -6,7 +6,6 @@
 		<div class="col-md-6">
 			<div class="panel panel-default">
 			  <div class="panel-heading">Information for {{Config::get('ragnarok.ServerInfo.ServerName')}}</div>
-			  <div class="panel-body">
 			    
 			    <ul class="list-group">
 				  
@@ -22,7 +21,6 @@
 
 				</ul>
 
-			  </div>
 			</div>
 		</div>
 
