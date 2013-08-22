@@ -23,9 +23,9 @@
     <body>
         
         
-        <div class="main-wrapper">
+        <div class="main-wrapper row row-offcanvas row-offcanvas-right">
     
-            <div class="left-panel col-lg-2 col-md-3 col-sm-3 col-xs-3 hidden-xs navigation sidebar-offcanvas" role="navigation">
+            <div class="left-panel col-lg-2 col-md-3 col-sm-3 col-xs-3 navigation sidebar-offcanvas" role="navigation">
                 
                 @include('main.logo')
                 @include('main.profile')
@@ -37,7 +37,7 @@
             <div class="right-panel col-lg-10 col-md-9  col-sm-9 col-xs-12 padding-none wrapper-min-height">
                 <div>
                     <h1 class="visible-xs toggler">
-                        <a href=""><span class="glyphicon glyphicon-align-justify"></span></a> {{ $title }}
+                        <a href="" data-toggle="offcanvas"><span class="glyphicon glyphicon-align-justify"></span></a> {{ $title }}
                     </h1>
                     <h1 class="hidden-xs">
                         <span class="glyphicon glyphicon-home"></span> {{ $title }}
@@ -75,7 +75,14 @@
 
                        @show
                     }
-                
+                    
+
+                    $('[data-toggle=offcanvas]').click(function(e) {
+                        e.preventDefault();
+                        $('.row-offcanvas').toggleClass('active');
+                        $('.navigation').show();
+                    });
+
                 }
             });
         </script>
