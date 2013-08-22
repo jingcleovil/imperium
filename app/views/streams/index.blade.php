@@ -9,7 +9,7 @@
 				<div class="panel panel-default">
 					
 					<div class="panel-body panel-post">
-						<textarea></textarea>
+						<textarea placeholder="Write post here..."></textarea>
 					</div>
 
 					<div class="panel-footer clearfix">
@@ -66,7 +66,7 @@
 							      			<!-- <img class="media-object" data-src="" alt="Photo" src="" style="width: 64px; height: 64px;"> -->
 							    		</a>
 					            		<div class="media-body">
-					              			<input type="text" class="form-control"/>
+					              			<input type="text" class="form-control" placeholder="Write your comment here..."/>
 					            		</div>
 					          		</div>
 
