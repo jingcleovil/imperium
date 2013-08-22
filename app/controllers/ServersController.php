@@ -32,9 +32,9 @@ class ServersController extends BaseController {
 	public function index()
 	{
 		$data['title'] = ucwords($this->module);
-		$data['module'] = $this->module;
+		$data['module'] = strtolower($this->module);
 
-		$this->layout->content = View::make($this->module.'.index');
+		$this->layout->content = View::make(strtolower($this->module).'.index');
 
 		View::share($data);
 	}
