@@ -1,5 +1,5 @@
 html,body {
-	color: #fff;
+	color: #333;
 	background: #1abc9c;
 }
 
@@ -22,6 +22,10 @@ h1 {
 .profile .thumb {
 	background: #117a66;
 	border: 3px solid #1ab193;
+}
+
+.profile {
+	color: #fff;
 }
 
 .profile a {
