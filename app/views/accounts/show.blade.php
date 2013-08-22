@@ -142,7 +142,7 @@
 
 	yepnope('{{ asset('js/tab.js') }}?=v1')
 	yepnope('{{ asset('js/jquery.dataTables.min.js') }} ')
-	yepnope('{{ asset('js/table.js') }}?v=1')
+	yepnope('{{ asset('js/table.js') }}?v=2')
 	yepnope('{{ asset('js/ajax_modal.js') }}?v=1')
 
 @stop
