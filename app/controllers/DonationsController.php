@@ -1,6 +1,6 @@
 <?php
 
-class CmsController extends BaseController {
+class DonationsController extends BaseController {
 
 	protected $layout = "layouts.default";
 	/**
@@ -10,9 +10,9 @@ class CmsController extends BaseController {
 	 */
 	public function index()
 	{
-		$data['title'] = "Content Management System";
+		$data['title'] = "Donation";
 		
-		$this->layout->content = View::make('cms.index',$data);
+		$this->layout->content = View::make('donations.index',$data);
 	}
 
 	/**

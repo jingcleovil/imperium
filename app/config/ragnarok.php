@@ -34,14 +34,14 @@ return array(
 
 	'MenuItems'		=> 	array(
 
-		'Home'			=> array('module' => '/', 	'icon' => 'home', 'access' => array(1,2,3)),
-		'Dashboard'		=> array('module' => 'dashboard', 	'icon' => 'time', 'access' => array(1,2,3)),
+		'Home'			=> array('module' => '/', 	'icon' => 'home'),
+		'Dashboard'		=> array('module' => 'dashboard', 	'icon' => 'time'),
 		'Accounts'		=> array('module' => 'accounts', 	'icon' => 'user'),
 		'Characters'	=> array('module' => 'characters', 	'icon' => 'list'),
 		'CMS'			=> array('module' => 'cms', 	'icon' => 'list'),
 		'Server Info'	=> array('module' => 'servers', 		'icon' => 'tasks'),
-		'Donate'		=> array('module' => 'donation', 	'icon' => 'usd'),
-		'Purchase'		=> array('module' => 'itemall/purchase', 	'icon' => 'shopping-cart'),
+		'Donate'		=> array('module' => 'donations', 	'icon' => 'usd'),
+		'Purchase'		=> array('module' => 'items/purchase', 	'icon' => 'shopping-cart'),
 		'Login'			=> array('module' => 'accounts/login', 	'icon' => 'lock'),
 		'Logout'		=> array('module' => 'accounts/logout', 	'icon' => 'off'),
 

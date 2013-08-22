@@ -30,7 +30,19 @@ class ItemsController extends BaseController {
 	 */
 	public function index()
 	{
-		//
+		$this->layout->content = View::make('items.index');
+	}
+
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	
+	public function purchase()
+	{
+		$data['title'] = "Item Mall";
+		$this->layout->content = View::make('items.purchase',$data);
 	}
 
 	/**

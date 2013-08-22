@@ -21,6 +21,7 @@ Route::resource('characters/lists', 'CharactersController@lists');
 Route::resource('characters', 'CharactersController');
 
 // Items Routes
+Route::get('items/purchase','ItemsController@purchase');
 Route::resource('items', 'ItemsController');
 
 // CMS Routes
@@ -28,3 +29,5 @@ Route::resource('cms', 'CmsController');
 
 // Server Route
 Route::resource('servers', 'ServersController');
+
+Route::resource('donations', 'DonationsController');

@@ -6,8 +6,6 @@
 	<div class="row">
 		
 		
-
-
 	</div>
 </div>
 
@@ -23,6 +21,5 @@
 
 @section('js')
 
-	
 
 @stop
