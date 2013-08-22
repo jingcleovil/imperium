@@ -33,7 +33,7 @@ class Access extends Eloquent {
         			else
         				return Redirect::to($AuthURL);
         		}
-        		
+
         		return Redirect::to($AuthURL);
         	}
         }

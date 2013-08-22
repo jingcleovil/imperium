@@ -35,7 +35,7 @@
                     {
                         $module_level = $module[$val['module']]['index'];
 
-                        if($module_level > 0)
+                        if($module_level >= 0)
                         {
                             $show = false;
                             

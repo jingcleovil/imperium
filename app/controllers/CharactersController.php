@@ -9,6 +9,8 @@ class CharactersController extends BaseController {
 
 	public function __construct()
 	{
+		$this->beforeFilter('checkModule');
+		
 		$this->table = new Character;
 
 		$this->module = "Characters";

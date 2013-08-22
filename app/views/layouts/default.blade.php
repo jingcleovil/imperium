@@ -31,7 +31,7 @@
             </div>
 
             <!--left-panel -->
-            <div class="right-panel col-lg-10 col-md-9  col-sm-9 col-xs-12 padding-none">
+            <div class="right-panel col-lg-10 col-md-9  col-sm-9 col-xs-12 padding-none wrapper-min-height">
                 <div>
                     @yield('content')
                     

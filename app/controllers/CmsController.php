@@ -8,6 +8,8 @@ class CmsController extends BaseController {
 
 	public function __construct()
 	{
+		$this->beforeFilter('checkModule');
+		
 		$this->module = "Cms";
 		$this->table = new Cms;
 		$this->layout = "layouts.".Config::get('ragnarok.DefaultTheme');

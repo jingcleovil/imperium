@@ -3,10 +3,11 @@ html, body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	background: gray;
+	/*background: gray;*/
 	font-family: 'Open Sans', arial, sans-serif;
 	font-size: small;
 	color: #666;
+	background: #16212c;
 }
 .margin-all { margin: 10px; }
 .margin-tb { margin: 20px; }
@@ -167,4 +168,8 @@ h1 .glyphicon {font-size: 22px;}
 
 .tab-pane { display: none }
 .tab-pane.tab-pane-active { display: block }
+
+.wrapper-min-height {
+	min-height: 1000px;
+}
 
