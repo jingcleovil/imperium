@@ -116,7 +116,7 @@ return array(
 		),
 		'characters' => array(
 			"index"	=> AccountLevel::ADMIN,
-			"status" => AccountLevel::NORMAL
+			"stats" => AccountLevel::NORMAL
 		),
 		'cms' => array(
 			"index"	=> AccountLevel::ADMIN,
