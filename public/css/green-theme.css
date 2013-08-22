@@ -8,6 +8,11 @@ h1 {
 	color: #fff;
 }
 
+.panel-default > .panel-heading {
+	background: #585858;
+	color: #fff;
+}
+
 .profile {
 	background: #16a085;
 	border-bottom: 1px solid #29947f;
@@ -38,6 +43,13 @@ h1 {
 	background: #3d3d3d;
 }
 
+.navigation li a:hover {
+	text-decoration: none;
+	color: #21f4c3;
+}
+
 .logo {
 	background: #333;
+	padding: 3.4px 0;
+	border: none;
 }
