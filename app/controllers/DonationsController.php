@@ -11,8 +11,11 @@ class DonationsController extends BaseController {
 	public function index()
 	{
 		$data['title'] = "Donation";
+		$data['icon'] = "usd";
 		
-		$this->layout->content = View::make('donations.index',$data);
+		$this->layout->content = View::make('donations.index');
+
+		View::share($data);
 	}
 
 	/**

@@ -33,6 +33,7 @@ class ServersController extends BaseController {
 	{
 		$data['title'] = ucwords($this->module);
 		$data['module'] = strtolower($this->module);
+		$data['icon'] = "tasks";
 
 		$this->layout->content = View::make(strtolower($this->module).'.index');
 

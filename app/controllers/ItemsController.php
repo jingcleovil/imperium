@@ -44,7 +44,10 @@ class ItemsController extends BaseController {
 	public function purchase()
 	{
 		$data['title'] = "Item Mall";
-		$this->layout->content = View::make('items.purchase',$data);
+		$data['icon'] = "shopping-cart";
+		$this->layout->content = View::make('items.purchase');
+
+		View::share($data);
 	}
 
 	/**

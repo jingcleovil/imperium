@@ -41,7 +41,8 @@
                         <a href="" data-toggle="offcanvas"><span class="glyphicon glyphicon-align-justify"></span></a> {{ $title }}
                     </h1>
                     <h1 class="hidden-xs">
-                        <span class="glyphicon glyphicon-home"></span> {{ $title }}
+                        <?php if(!isset($icon)) $icon = "home"; ?>
+                        <span class="glyphicon glyphicon-{{$icon}}"></span> {{ $title }}
                     </h1>
                     @yield('content')
                 </div>
