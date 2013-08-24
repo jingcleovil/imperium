@@ -14,8 +14,9 @@ class IcpNews extends Migration {
 	{
 		Schema::create('icp_news', function(Blueprint $table) {
 			$table->increments('id');
-			$table->string('n_title');
+			$table->string('n_title',64);
 			$table->text('n_content');
+			$table->string('n_vanity',100);
 			$table->integer('n_author');
 			$table->integer('n_cat_id');
 			$table->timestamps();
