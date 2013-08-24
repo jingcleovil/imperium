@@ -77,3 +77,7 @@ h1 {
 .btn-success:hover {
 	background: #1abc9c;
 }
+
+.breadcrumb {
+	background: #fff;
+}

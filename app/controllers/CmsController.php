@@ -46,7 +46,12 @@ class CmsController extends BaseController {
 	 */
 	public function create()
 	{
-		//
+		$data['title'] = "Create page";
+		$data['module'] = strtolower($this->module);
+		
+		$this->layout->content = View::make('cms.create');
+
+		View::share($data);
 	}
 
 	/**

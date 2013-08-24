@@ -48,6 +48,16 @@ return array(
 
 	),
 
+	// SubMenus
+	
+	'SubMenus' 	=> array(
+		
+		'cms'	=>	array(
+			'Lists' => array('module' => 'cms', 'action' => '/'),
+			'Create Page' => array('module' => 'cms', 'action' => 'create'),
+		)
+	),
+
 
 	/*
 	|--------------------------------------------------------------------------
@@ -88,6 +98,7 @@ return array(
 			'level' => AccountLevel::ADMIN
 		)
 	),
+
 	/*
 	|--------------------------------------------------------------------------
 	| Access Settings

@@ -44,6 +44,7 @@
                         <?php if(!isset($icon)) $icon = "home"; ?>
                         <span class="glyphicon glyphicon-{{$icon}}"></span> {{ $title }}
                     </h1>
+                    @include('main.submenu')
                     @yield('content')
                 </div>
             </div>
