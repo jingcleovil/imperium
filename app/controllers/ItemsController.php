@@ -43,8 +43,20 @@ class ItemsController extends BaseController {
 	
 	public function purchase()
 	{
+		$skip = 0;
+		$take = 22;
+		$items = $this->table->read(array('premium','=',1),$skip,$take);
+
+		if(Request::ajax())
+		{
+			
+		}
+
+		$data['items'] = $items->get();
 		$data['title'] = "Item Mall";
 		$data['icon'] = "shopping-cart";
+
+
 		$this->layout->content = View::make('items.purchase');
 
 		View::share($data);
