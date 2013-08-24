@@ -2,13 +2,18 @@
 <div class="form-wrapper margin-tb">
 	<div class="row">
 		
-		<div class="col-md-6">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">Character Stats</div>
+				<div class="panel-body">
+					<div id="characterStats" style="height: 300px"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">General Reports</div>
-				<!-- <div class="panel-body">
-					
-				</div>
- -->
 				<ul class="list-group">
 						<li class="list-group-item">
 							<span class="badge">{{ number_format($totalAccounts) }}</span>
@@ -43,16 +48,9 @@
 			</div>
 		</div>
 
-		<div class="col-md-6">
-			<div class="panel panel-default">
-				<div class="panel-heading">Character Stats</div>
-				<div class="panel-body">
-					<div id="characterStats" style="height: 300px"></div>
-				</div>
-			</div>
-		</div>
+		
 
-		<div class="col-md-6">
+	<!-- 	<div class="col-md-6">
 			<div class="panel panel-default">
 			  <div class="panel-heading">Total Users</div>
 			  <div class="panel-body">
@@ -69,7 +67,7 @@
 			  </div>
 			</div>
 		</div>
-
+ -->
 
 	</div>
 </div>

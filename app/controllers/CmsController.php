@@ -170,7 +170,11 @@ class CmsController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$page = Pages::find($id);
+
+		$page->delete();
+
+		return Redirect::to('cms');
 	}
 
 	public function lists()
@@ -197,6 +201,7 @@ class CmsController extends BaseController {
 		{
 			$rows[] = array(
 				"<a href=\"".url('cms/'.$res->id)."\" class='glyphicon glyphicon-search'></a>",
+				"<a href=\"".url('cms/'.$res->id)."\" class='glyphicon glyphicon-remove data-table-delete'></a>",
 				$res->p_title,
 				$res->p_author,
 				$res->created_at

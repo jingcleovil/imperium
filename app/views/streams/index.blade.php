@@ -47,10 +47,10 @@
 									?>
 									<hr/>
 									
-									<div id="stream_{{ $stream->sid }}">
+									<div id="stream_{{ $stream->sid }}" class="stream-wrapper">
 										@foreach($comments as $comment)
 
-						          		<div class="media">
+						          		<div class="media stream-item">
 						            		<a class="pull-left comment-profile" href="#" style="width: 38px; height: 38px;">
 								   				<span class="glyphicon glyphicon-user"></span>
 								      			<!-- <img class="media-object" data-src="" alt="Photo" src="" style="width: 64px; height: 64px;"> -->

@@ -190,4 +190,12 @@ $(document).ready(function() {
 	    	}
 	    ]
 	});
+
+	$("#grid").on('click','.data-table-delete',function(e){
+		e.preventDefault();
+		var url = $(this).attr('href');
+
+		$('.form-delete').attr('action',url);
+		$('#modal_delete').modal();
+	})
 } );
