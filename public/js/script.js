@@ -12,6 +12,11 @@ var procJSON = {
 		$('.new-stream').slideDown('fast',function(){
 			$(this).removeClass('new-stream');
 		})
+	},
+	'comment_success' : function(data,form) 
+	{
+		$('#stream_'+data.sid).prepend(data.content);
+		$('input[name=comment]', form).val('');
 	}
 }
 

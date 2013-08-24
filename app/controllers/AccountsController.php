@@ -24,6 +24,7 @@ class AccountsController extends BaseController {
 		}
 
 	}
+	
 
 	public function index()
 	{

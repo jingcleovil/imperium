@@ -4,6 +4,7 @@ class Comments extends Eloquent {
 
 	protected $table = "gcp_comment";
 	protected $primaryKey = "cid";
+	public $timestamps = false;
 
 
 	public function getComments($sid)

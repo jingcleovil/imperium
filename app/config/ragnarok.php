@@ -39,7 +39,7 @@ return array(
 		'Streams'		=> array('module' => 'streams', 	'icon' => 'globe'),
 		'Accounts'		=> array('module' => 'accounts', 	'icon' => 'user'),
 		'Characters'	=> array('module' => 'characters', 	'icon' => 'list'),
-		'CMS'			=> array('module' => 'cms', 		'icon' => 'list'),
+		'CMS'			=> array('module' => 'cms', 		'icon' => 'book'),
 		'Server Info'	=> array('module' => 'servers', 	'icon' => 'tasks'),
 		'Donate'		=> array('module' => 'donations', 	'icon' => 'usd'),
 		'Purchase'		=> array('module' => 'items', 'action'=>'purchase', 'icon' => 'shopping-cart'),

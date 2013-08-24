@@ -46,29 +46,39 @@
 										$comments = $comment->getComments($stream->sid);
 									?>
 									<hr/>
+									
+									<div id="stream_{{ $stream->sid }}">
+										@foreach($comments as $comment)
 
-									@foreach($comments as $comment)
+						          		<div class="media">
+						            		<a class="pull-left comment-profile" href="#" style="width: 38px; height: 38px;">
+								   				<span class="glyphicon glyphicon-user"></span>
+								      			<!-- <img class="media-object" data-src="" alt="Photo" src="" style="width: 64px; height: 64px;"> -->
+								    		</a>
+						            		<div class="media-body">
+						              			<h5 class="media-heading"><a href="">{{ $comment->u_nickname }}</a></h5>
+						              			{{ $comment->c_comment }}
+						            		</div>
+						          		</div>
 
-					          		<div class="media">
-					            		<a class="pull-left comment-profile" href="#" style="width: 38px; height: 38px;">
-							   				<span class="glyphicon glyphicon-user"></span>
-							      			<!-- <img class="media-object" data-src="" alt="Photo" src="" style="width: 64px; height: 64px;"> -->
-							    		</a>
-					            		<div class="media-body">
-					              			<h5 class="media-heading"><a href="">{{ $comment->u_nickname }}</a></h5>
-					              			{{ $comment->c_comment }}
-					            		</div>
+						          		@endforeach
 					          		</div>
 
-					          		@endforeach
-
 					          		<div class="media">
 					            		<a class="pull-left comment-profile" href="#" style="width: 38px; height: 38px;">
 							   				<span class="glyphicon glyphicon-user"></span>
 							      			<!-- <img class="media-object" data-src="" alt="Photo" src="" style="width: 64px; height: 64px;"> -->
 							    		</a>
 					            		<div class="media-body">
-					              			<input type="text" class="form-control" placeholder="Write your comment here..."/>
+					            			
+					            			{{ Form::open(array('url'=>'comments','class'=>'form','method'=>'post')) }}
+					            				<div style="display:none">
+					            					<input type="text" name="sid" value="{{ $stream->sid }}"/>
+					            				</div>
+					              				<input type="text" name="comment" class="form-control comment_stream" placeholder="Write your comment here..."/>
+					              			
+					              			{{ Form::close() }}
+
 					            		</div>
 					          		</div>
 
@@ -87,3 +97,9 @@
 
 	</div>
 @stop;
+
+@section('js')
+
+	yepnope('{{ asset('js/stream.js') }}')
+
+@stop

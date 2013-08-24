@@ -36,4 +36,8 @@ Route::resource('servers', 'ServersController');
 // Donation Routes
 Route::resource('donations', 'DonationsController');
 
+// Comments
+// 
+Route::resource('comments','CommentsController');
+
 
