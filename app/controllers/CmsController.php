@@ -81,10 +81,9 @@ class CmsController extends BaseController {
 
 			$Pages = new Pages;
 
-			$Pages->p_content = Input::get('page_content');
+			$Pages->p_body = Input::get('page_content');
 			$Pages->p_title = Input::get('page_title');
-			$Pages->p_created = date('Y-m-d H:i:s');
-			$Pages->p_accountid = Auth::user()->account_id;
+			$Pages->p_author = Auth::user()->account_id;
 
 			$Pages->save();
 
@@ -139,6 +138,8 @@ class CmsController extends BaseController {
 
 	public function lists()
 	{
+		$table			= new Pages;
+
 		$displayRecords = Input::get('iDisplayLength');
 		$iDisplayStart	= Input::get('iDisplayStart');
 		$sSearch 		= Input::get('sSearch');
@@ -152,15 +153,16 @@ class CmsController extends BaseController {
 			$filter = ['page_title','like',"%$sSearch%"];
 		}
 
-		$results 	= $this->table->read($filter,$iDisplayStart,$displayRecords,array('updated_at'=>'desc'));
-		$total 		= $this->table->read($filter)->count();
+		$results 	= $table->read($filter,$iDisplayStart,$displayRecords,array('updated_at'=>'desc'));
+		$total 		= $table->read($filter)->count();
 
 		foreach($results->get() as $res)
 		{
 			$rows[] = array(
-				"<a href=\"".url('cms/'.$res->account_id)."\" class='glyphicon glyphicon-search'></a>",
-				$res->page_title,
-				$res->created_on
+				"<a href=\"".url('cms/'.$res->id)."\" class='glyphicon glyphicon-search'></a>",
+				$res->p_title,
+				$res->p_author,
+				$res->created_at
 			);
 		}
 

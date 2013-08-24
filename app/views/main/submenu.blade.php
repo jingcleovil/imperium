@@ -16,7 +16,8 @@
 			@foreach($SubMenu as $key=>$menu)
 			
 				<li>
-					{{ Request::path()." ". $menu['module']." ".$menu['action'] }}
+					<?php if($menu['action']) $action = '/'.$menu['action'];?>
+					<a href="{{$menu['module'].$action}}">{{$key}}</a>
 				</li>
 
 			@endforeach
