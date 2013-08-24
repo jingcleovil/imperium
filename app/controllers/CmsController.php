@@ -100,7 +100,16 @@ class CmsController extends BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$pages = Pages::find($id);
+
+		$data['pages'] = $pages;
+
+		$data['title'] = "Create page";
+		$data['module'] = strtolower($this->module);
+		
+		$this->layout->content = View::make('cms.show');
+
+		View::share($data);
 	}
 
 	/**
@@ -122,7 +131,35 @@ class CmsController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$Input = Input::all();
+
+		$Rules = array(
+			'page_title' => 'required'
+		);
+
+		$Validator = Validator::make($Input,$Rules);
+
+		if($Validator->fails())
+		{
+			$data['errors'] = $Validator->messages('<li>:messages</li>')->all();
+			$data['action'] = "retry";
+		}
+		else
+		{
+			$data['action'] = "forward";
+			$data['url'] = url('cms');
+
+			$Pages = Pages::find($id);
+
+			$Pages->p_body = Input::get('page_content');
+			$Pages->p_title = Input::get('page_title');
+			$Pages->p_author = Auth::user()->account_id;
+
+			$Pages->save();
+
+		}
+
+		return Response::json($data);
 	}
 
 	/**
