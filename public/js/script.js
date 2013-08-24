@@ -1,4 +1,22 @@
 var procJSON = {
+	'retry' : function(data,form)
+	{
+		var html = [];
+
+		html.push('<div class="alert alert-danger"><ul>');
+
+		$.each(data.errors, function(i,n){
+			html.push(n)
+		})
+		
+		html.push('</ul></div>');
+		$('.response', form).html('').html(html.join(""));
+	},
+	'forward' : function(data,form)
+	{
+		if(data.url)
+			location.href=data.url
+	},
 	'share_fail' : function(data,form)
 	{
 

@@ -61,7 +61,36 @@ class CmsController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		$Input = Input::all();
+
+		$Rules = array(
+			'page_title' => 'required'
+		);
+
+		$Validator = Validator::make($Input,$Rules);
+
+		if($Validator->fails())
+		{
+			$data['errors'] = $Validator->messages('<li>:messages</li>')->all();
+			$data['action'] = "retry";
+		}
+		else
+		{
+			$data['action'] = "forward";
+			$data['url'] = url('cms');
+
+			$Pages = new Pages;
+
+			$Pages->p_content = Input::get('page_content');
+			$Pages->p_title = Input::get('page_title');
+			$Pages->p_created = date('Y-m-d H:i:s');
+			$Pages->p_accountid = Auth::user()->account_id;
+
+			$Pages->save();
+
+		}
+
+		return Response::json($data);
 	}
 
 	/**

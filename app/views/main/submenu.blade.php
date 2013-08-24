@@ -11,15 +11,15 @@
 ?>
 
 @if($SubMenu)
-<div class="col-md-12">
-	<ol class="breadcrumb">
-		@foreach($SubMenu as $key=>$menu)
+	<div class="col-md-12">
+		<ol class="breadcrumb">
+			@foreach($SubMenu as $key=>$menu)
+			
+				<li>
+					{{ Request::path()." ". $menu['module']." ".$menu['action'] }}
+				</li>
 
-		<li class="{{ Request::is('cms*') ? 'active' : '' }}">
-			<a href="{{ url($menu['module']."/".$menu['action']) }}">{{ $key }}</a>
-		</li>
-
-		@endforeach
-	</ol>		
-</div>
+			@endforeach
+		</ol>		
+	</div>
 @endif

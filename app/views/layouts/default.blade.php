@@ -72,7 +72,7 @@
                 callback: function(url, result, key) {
 
                     yepnope('{{ asset('js/bootstrap.min.js') }}');
-                    yepnope('{{ asset('js/script.js') }}?v=5');
+                    yepnope('{{ asset('js/script.js') }}?v=') + Math.random();
 
                     if(window.jQuery) {
                        @section('js')

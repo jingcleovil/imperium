@@ -23,7 +23,7 @@
 
 							<div class="form-group">
 								<label for="exampleInputEmail1">Page Title</label> 
-								<input type="text" class="form-control" name="page_title" placeholder="Username" name="userid">
+								<input type="text" class="form-control" name="page_title" name="userid">
 							</div>
 							<div class="form-group">
 								<label for="exampleInputPassword1">Page Content</label> 
