@@ -97,13 +97,14 @@
 
 		<div class="col-md-4">
 			<div class="panel panel-default">
-				<div class="panel-heading">Friends</div>
+				<div class="panel-heading">Location Map</div>
 				<div class="panel-body">
-				
-
-
-
-
+					
+					<div class="mini-map">
+						@if(file_exists(public_path('images/maps/'.$char->save_map.'.gif'))) 
+							<img src="{{ asset('images/maps/'.$char->save_map.'.gif') }}"/>
+						@endif
+					</div>
 				</div>
 			</div>
 		</div>
