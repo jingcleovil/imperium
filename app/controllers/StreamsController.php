@@ -34,7 +34,8 @@ class StreamsController extends BaseController {
 	{
 		$stream = new Stream;
 
-		$data['title'] = $this->module;
+		$data['title'] = "News Feed";
+		$data['icon'] = "list-alt";
 
 		$data['module'] = strtolower($this->module);
 

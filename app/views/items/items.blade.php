@@ -33,7 +33,7 @@
 						Equip Level
 					</li>
 					<li class="list-group-item clearfix">
-						<div class="btn-group btn-group-xs pull-right">
+						<div class="btn-group btn-group-md pull-right">
 				          <button type="button" class="btn btn-primary">Share</button>
 				          <button type="button" class="btn btn-default">Purchase</button>
 				        </div>
