@@ -53,8 +53,17 @@ return array(
 	'SubMenus' 	=> array(
 		
 		'cms'	=>	array(
-			'Lists' => array('module' => 'cms', 'action' => '/'),
-			'Create Page' => array('module' => 'cms', 'action' => 'create'),
+			'Lists' 	 => array('module' => 'cms', 'action' => '/'),
+			'Create Page'=> array('module' => 'cms', 'action' => 'create'),
+		),
+
+		'items'	=>	array(
+			'All' 		=> array('module' => 'items', 'action' => 'purchase'),
+			'Usuable' 	=> array('module' => 'items', 'action' => 'purchase/2'),
+			'Etc' 		=> array('module' => 'items', 'action' => 'purchase/3'),
+			'Weapon' 	=> array('module' => 'items', 'action' => 'purchase/4'),
+			'Equipment' => array('module' => 'items', 'action' => 'purchase/5'),
+			'Cards' 	=> array('module' => 'items', 'action' => 'purchase/6'),
 		)
 	),
 
@@ -67,10 +76,6 @@ return array(
 	|
 	*/
 
-	'ItemCategories' => array(
-		'All' => 2,
-		''
-	),
 
 	/*
 	|--------------------------------------------------------------------------

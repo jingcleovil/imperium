@@ -15,11 +15,10 @@ class Items extends Eloquent {
 						
 						if($where && is_array($where))
 						{
-							if(count($where) === 3)
-							{
-								$query->where($where[0],$where[1],$where[2]);
-							}
+							foreach($where as $w)
+								$query->where($w[0],$w[1],$w[2]);
 						}
+						
 					});
 
 		if($orderby && is_array($orderby))

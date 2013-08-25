@@ -13,7 +13,7 @@ class ItemsController extends BaseController {
 		
 		$this->table = new Items;
 
-		$this->module = "itemmall";
+		$this->module = "items";
 		$this->layout = "layouts.".Config::get('ragnarok.DefaultTheme');
 
 		$menuItems = Config::get('ragnarok.MenuItems');
@@ -32,7 +32,11 @@ class ItemsController extends BaseController {
 	 */
 	public function index()
 	{
+		$data['module'] = "items";
+		
 		$this->layout->content = View::make('items.index');
+
+		View::share($data);
 	}
 
 	/**
@@ -41,17 +45,22 @@ class ItemsController extends BaseController {
 	 * @return Response
 	 */
 	
-	public function purchase()
+	public function purchase($type=null)
 	{
 		$page = Input::get('skip');
-
 		$skip = 0;
-
-		if($page)
-			$skip = $page;
-
+		
+		if($page) $skip = $page;
 		$take = 30;
-		$items = $this->table->read(array('premium','=',1),$skip,$take);
+
+		$filter[] = array('premium','=',1);
+
+		if($type)
+		$filter[] = array('type','=',$type);
+
+
+
+		$items = $this->table->read($filter,$skip,$take);
 
 		$data['items'] = $items->get();
 
@@ -61,6 +70,7 @@ class ItemsController extends BaseController {
 			return Response::json($content);
 		}
 
+		$data['module'] = "items";
 		
 		$data['title'] = "Item Mall";
 		$data['icon'] = "shopping-cart";

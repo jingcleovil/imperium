@@ -24,6 +24,7 @@ Route::resource('characters', 'CharactersController');
 
 // Items Routes
 Route::get('items/purchase','ItemsController@purchase');
+Route::get('items/purchase/{type}','ItemsController@purchase');
 Route::post('items/purchase','ItemsController@purchase');
 Route::resource('items', 'ItemsController');
 
