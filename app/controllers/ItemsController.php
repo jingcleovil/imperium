@@ -43,16 +43,25 @@ class ItemsController extends BaseController {
 	
 	public function purchase()
 	{
+		$page = Input::get('skip');
+
 		$skip = 0;
-		$take = 22;
+
+		if($page)
+			$skip = $page;
+
+		$take = 30;
 		$items = $this->table->read(array('premium','=',1),$skip,$take);
+
+		$data['items'] = $items->get();
 
 		if(Request::ajax())
 		{
-			
+			$content['content'] = (string) View::make('items.items',$data);
+			return Response::json($content);
 		}
 
-		$data['items'] = $items->get();
+		
 		$data['title'] = "Item Mall";
 		$data['icon'] = "shopping-cart";
 

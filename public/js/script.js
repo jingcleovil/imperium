@@ -1,4 +1,18 @@
-var procJSON = {
+var isSpoted, procJSON;
+
+isSpoted = function(elem) {
+	if($(elem).length == 0) return false;
+	 
+	var docViewTop = $(window).scrollTop();
+	var docViewBottom = docViewTop + $(window).height();
+
+	var elemTop = $(elem).offset().top;
+	var elemBottom = elemTop + $(elem).height();
+
+	return ((elemBottom >= docViewTop) && (elemTop <= docViewBottom));
+};
+
+procJSON = {
 	'retry' : function(data,form)
 	{
 		var html = [];
@@ -40,6 +54,7 @@ var procJSON = {
 
 $(document).ready(function(){
 
+	$('body').css({scrollTop:0});
 
 	$('.form').on('submit', function(e){
 		e.preventDefault();
@@ -75,4 +90,4 @@ $(document).ready(function(){
 		})
 	});
 	
-})
+});
