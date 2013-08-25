@@ -53,7 +53,7 @@ return array(
 	'SubMenus' 	=> array(
 		
 		'cms'	=>	array(
-			'Lists' 	 => array('module' => 'cms', 'action' => '/'),
+			'Lists' 	 => array('module' => 'cms', 'action' => ''),
 			'Create Page'=> array('module' => 'cms', 'action' => 'create'),
 		),
 

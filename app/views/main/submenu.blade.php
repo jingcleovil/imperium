@@ -17,15 +17,16 @@
 	<div class="col-md-12">
 		<ol class="breadcrumb">
 			@foreach($SubMenu as $key=>$menu)
-			
-				<li>
-					<?php 
-						$url = $menu['module'];
+		
+				<?php 
+					$url = $menu['module'];
 
-						if($menu['action']) 
-							$url = $menu['module'].'/'.$menu['action'];
-					?>
-				
+					if($menu['action']) 
+						$url = $menu['module'].'/'.$menu['action'];
+
+				?>
+		
+				<li class="{{ Request::is($url) ? 'active' : '' }}">
 					@if($url === Request::path())
 						{{$key}}
 					@else
