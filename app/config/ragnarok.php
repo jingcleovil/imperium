@@ -56,6 +56,10 @@ return array(
 			'Lists' 	 => array('module' => 'cms', 'action' => ''),
 			'Create Page'=> array('module' => 'cms', 'action' => 'create'),
 		),
+		'accounts' => array(
+			'Lists' => array('module' => 'accounts', 'action' => ''),
+			'Modify' => array('module' => 'accounts', 'action' => 'modify')
+		),
 
 		'items'	=>	array(
 			'All' 		=> array('module' => 'items', 'action' => 'purchase'),
@@ -139,6 +143,7 @@ return array(
 		),
 		'accounts' => array(
 			"index"	=> AccountLevel::ADMIN,
+			"modify" => AccountLevel::ADMIN,
 			"login"	=> AccountLevel::UNAUTH,
 			"logout"=> AccountLevel::NORMAL,
 			"auth" 	=> AccountLevel::ANYONE

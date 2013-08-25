@@ -143,6 +143,7 @@ class AccountsController extends BaseController {
 		$data['user'] 	= $user;
 		$data['icon'] 	= "user";
 		$data['module'] = $this->module;
+		$data['id']		= $id;
 
 		$this->layout->content = View::make('accounts.show');
 
@@ -152,13 +153,94 @@ class AccountsController extends BaseController {
 	
 	public function edit($id)
 	{
-		//
+		$user = Accounts::find($id)->toArray();
+
+		$data['title'] 	= "Modifying Account [ ".$id." ]";
+		$data['user'] 	= $user;
+		$data['icon'] 	= "user";
+		$data['module'] = $this->module;
+		$data['id']		= $id;
+		
+		$this->layout->content = View::make('accounts.edit');
+
+		View::share($data);
 	}
 
 	
 	public function update($id)
 	{
-		//
+		$input = Input::all();
+
+		$validate_email = "";
+		$AllowMD5 		= false;
+		$between		= '8,31';
+
+		if(Config::get('my_config.EmailIsUnique'))
+			$validate_email = "|unique:login,email";
+
+		if(Config::get('my_config.AllowMD5'))
+			$AllowMD5 = true;
+
+		if(is_array(Config::get('my_config.PassWordLength')) && count(Config::get('my_config.PassWordLength')) >= 2)
+		{
+			$passlength = Config::get('my_config.PassWordLength');
+
+			$between = $passlength[0].",".$passlength[1];
+		}
+
+
+		$rules = array(
+			'username'			=> 'required|not_in:super,admin',
+			'email'				=> 'required|email'.$validate_email,
+			'group_id'			=> 'required|integer',
+			'birthdate'			=> 'required|date'
+		);
+
+		$validator = Validator::make($input,$rules);
+
+		$data['action'] = "forward";
+
+		if($validator->fails())
+		{
+			$data['action'] = "retry";
+
+			$messages = $validator->messages();
+
+			if(Request::ajax())
+			{
+				$data['errors'] = $messages->all("<li>:message</li>");
+				return Response::json($data);
+			}
+
+			return Redirect::to('accounts/create')->withErrors($validator);
+		}
+		else
+		{
+			$data['action'] = "forward";
+
+			$data['url'] = url('accounts/'.$id);
+
+			$accounts = Accounts::find($id);
+
+			$password = Input::get('password');
+
+			if($AllowMD5) $password = md5($password);
+
+			$accounts->userid 		= Input::get('username');
+		
+			if($password)
+			$accounts->user_pass 	= $password;
+
+			$accounts->email 		= Input::get('email');
+			$accounts->sex 			= Input::get('gender');
+			$accounts->birthdate	= Input::get('birthdate');
+			$accounts->group_id		= Input::get('group_id');
+
+			$accounts->save();
+
+			return Response::json($data);
+		}
+
 	}
 
 	

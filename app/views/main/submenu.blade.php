@@ -1,15 +1,23 @@
 <?php 
-	$SubMenus = Config::get('ragnarok.SubMenus');
+	$SubMenus 	= Config::get('ragnarok.SubMenus');
+	$Path 		= Request::path();
+	$IsShow 	= false;
+	$SubMenu 	= null;
 
-	$SubMenu = null;
+	if(!isset($id)) $id = 0;
 
 	if(!isset($module)) $module = '';
 
 	if( isset($SubMenus[$module]) )
 	{
 		$SubMenu = $SubMenus[$module];
+	}
 
+	$exPath = explode('/',$Path);
 
+	if(isset($exPath[1]) && is_numeric($exPath[1]))
+	{
+		$IsShow = true;
 	}
 ?>
 @if($SubMenu)
@@ -19,22 +27,33 @@
 			@foreach($SubMenu as $key=>$menu)
 		
 				<?php 
-					$url = $menu['module'];
+					$Url = $menu['module'];
 
 					if($menu['action']) 
-						$url = $menu['module'].'/'.$menu['action'];
-
+						$Url = $menu['module'].'/'.$menu['action'];
 				?>
-		
-				<li class="{{ Request::is($url) ? 'active' : '' }}">
-					@if($url === Request::path())
-						{{$key}}
-					@else
-						<a href="{{url($url)}}">{{$key}}</a>
-					@endif
-				</li>
+				
+				@if($menu['action'] !== "modify")
+
+					<li class="{{ Request::is($Url) ? 'active' : '' }}">
+						@if($Url === $Path)
+							{{$key}}
+						@else
+							<a href="{{url($Url)}}">{{$key}}</a>
+						@endif
+					</li>
+
+				@elseif($IsShow)
+
+					<li class="{{ Request::is($Url) ? 'active' : '' }}">
+						<a href="{{ url($menu['module']).'/'.$id.'/edit' }}">{{$key}}</a>
+					</li>
+
+				@endif
 
 			@endforeach
+
+	
 		</ol>		
 	</div>
 @endif
