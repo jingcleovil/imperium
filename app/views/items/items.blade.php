@@ -4,7 +4,7 @@
 
 		<div class="col-md-4">
 			<div class="panel panel-default">
-				<div class="panel-heading">{{ $item->name_japanese }}</div>
+				<div class="panel-heading">{{ $item->name_japanese }} ( {{ number_format($item->donate_cost,2) }} )</div>
 				<div class="panel-body">
 						
 					<div class="media">
