@@ -97,7 +97,7 @@
 
 		<div class="col-md-4">
 			<div class="panel panel-default">
-				<div class="panel-heading">Location Map</div>
+				<div class="panel-heading">{{ $char->save_map.' ('.$char->save_x.','.$char->save_y.')' }}</div>
 				<div class="panel-body">
 					
 					<div class="mini-map">
