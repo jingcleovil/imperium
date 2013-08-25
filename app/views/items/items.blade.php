@@ -16,20 +16,29 @@
 			        	@endif
 			        </a>
 			        <div class="media-body">
-			          {{ substr($item->description,0,100) }}...
-						
-						<div class="row">
-							<div class="col-md-12">
-					          	<div class="btn-group btn-group-xs pull-right">
-						          <button type="button" class="btn btn-primary">Share</button>
-						          <button type="button" class="btn btn-default">Purchase</button>
-						        </div>
-					        </div>
-				        </div>
+			          	{{ substr($item->description,0,100) }}...
+		
 			        </div>
 			      </div>
 
 				</div>
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<span class="badge">{{ $item->donate_cost }}</span>
+						Cost
+					</li>
+					<li class="list-group-item">
+						<span class="badge">{{ $item->equip_level }}</span>
+						Equip Level
+					</li>
+					<li class="list-group-item clearfix">
+						<div class="btn-group btn-group-xs pull-right">
+				          <button type="button" class="btn btn-primary">Share</button>
+				          <button type="button" class="btn btn-default">Purchase</button>
+				        </div>
+					</li>
+				</ul>
 			</div>
 		</div>
 
