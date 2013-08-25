@@ -17,9 +17,23 @@ return array(
 	'PassWordLength'=> array(8,31), // Password max and min lenth
 	'DefaultTheme'  => 'default',
 
+	/*
+	|--------------------------------------------------------------------------
+	| Server Default Settings
+	|--------------------------------------------------------------------------
+	|
+	| This is your default ragnarok settings
+	|
+	*/
+
+	'DefaultServer' => 'Server1',
+	
 	'ServerInfo'	=>	array(
 
-		'ServerName' => 'Imperium RO', 
+		'Server1' => array(
+			'name'		=> 'ImperiumRO',
+			'maxStats'	=> 99,
+		),
 
 	),
 
@@ -60,7 +74,9 @@ return array(
 			'Lists' => array('module' => 'accounts', 'action' => ''),
 			'Modify' => array('module' => 'accounts', 'action' => 'modify')
 		),
-
+		'characters' => array(
+			'Lists' => array('module' => 'characters', 'action' => ''),
+		),
 		'items'	=>	array(
 			'All' 		=> array('module' => 'items', 'action' => 'purchase'),
 			'Usuable' 	=> array('module' => 'items', 'action' => 'purchase/2'),

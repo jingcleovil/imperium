@@ -70,7 +70,21 @@ class CharactersController extends BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$user = new Character;
+
+		$filter[] = ['char_id','=',$id];
+
+		$char = $user->read($filter)->get();
+
+		$data['title'] 	= "Viewing Character [ ".$id." ]";
+		$data['char'] = $char[0];
+		$data['icon'] 	= "user";
+		$data['module'] = $this->module;
+		$data['id']		= $id;
+
+		$this->layout->content = View::make('characters.show');
+
+		View::share($data);
 	}
 
 	/**
@@ -132,7 +146,7 @@ class CharactersController extends BaseController {
 
 		if($sSearch)
 		{
-			$filter = ['name','like',"%$sSearch%"];
+			$filter[] = ['name','like',"%$sSearch%"];
 		}
 
 		$results 	= $this->table->read($filter,$iDisplayStart,$displayRecords,array('char_id'=>'desc'));
@@ -149,7 +163,7 @@ class CharactersController extends BaseController {
 			}
 
 			$rows[] = array(
-				"<a href='' class='glyphicon glyphicon-search'></a>",
+				"<a href='".url('characters/'.$res->char_id)."' class='glyphicon glyphicon-search'></a>",
 				$res->char_id,
 				$res->account_id,
 				$res->name,

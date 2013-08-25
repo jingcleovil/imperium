@@ -84,7 +84,7 @@
 								Account State
 							</div>
 							<div class="col-md-10 col-xs-6">
-								{{ $user['state'] }}
+								{{ $user['state'] == 5 ? 'Permanently Banned' : 'Normal' }}
 							</div>
 						</li>
 					</ul>
@@ -108,7 +108,6 @@
 							</tr>
 						</thead>
 						<tbody>
-							
 						
 						</tbody>    
 				    </table>

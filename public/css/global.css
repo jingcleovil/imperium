@@ -225,6 +225,34 @@ h1 .glyphicon {font-size: 22px;}
 	color: #fff;
 }
 
+.char-body {
+	width: 64px;
+	height: 100px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.char-body img {
+	margin: -73px 0 0 -90px;
+}
+
+.char-stats .progress {
+	padding: 0;
+	margin: 0;
+}
+
+.char-stats .list-group-item {
+	padding: 5px 12px;
+}
+
+.equipwin {
+	width: 277px;
+	height: 150px;
+	background: url(../images/equipwin.jpg) no-repeat center;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+
 .facebook {
 	width: 285px;
 	height: 54px;

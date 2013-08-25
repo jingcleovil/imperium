@@ -235,6 +235,7 @@ class AccountsController extends BaseController {
 			$accounts->sex 			= Input::get('gender');
 			$accounts->birthdate	= Input::get('birthdate');
 			$accounts->group_id		= Input::get('group_id');
+			$accounts->state		= Input::get('state');
 
 			$accounts->save();
 
@@ -276,8 +277,8 @@ class AccountsController extends BaseController {
 				"***@domain.com",
 				$res->sex === 'M' ? 'Male' : 'Female',
 				$res->last_ip,
-				$res->lastlogin
-				
+				$res->lastlogin,
+				$res->state == 5 ? 'Banned' : 'Normal'
 			);
 		}
 

@@ -18,6 +18,7 @@
 							<th>Gender</th>
 							<th>Last IP</th>
 							<th>Last Login</th>
+							<th>State</th>
 						</tr>
 					</thead>
 					<tbody>

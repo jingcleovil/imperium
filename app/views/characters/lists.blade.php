@@ -7,9 +7,11 @@
 				<div class="panel-heading">{{ $char->name }}</div>
 				<div class="panel-body">
 					
-					<?php if(file_exists(public_path('images/jobs/'.$char->sex.'/'.$char->class.'.png'))) {?> 
-							<img src="{{ asset('images/jobs/'.$char->sex.'/'.$char->class.'.png') }}"/>
-					<? } ?>
+					<div class="char-body">
+						<?php if(file_exists(public_path('images/jobs/'.$char->sex.'/'.$char->class.'.png'))) {?> 
+								<img src="{{ asset('images/jobs/'.$char->sex.'/'.$char->class.'.png') }}"/>
+						<? } ?>
+					</div>
 
 				</div>
 			</div>
