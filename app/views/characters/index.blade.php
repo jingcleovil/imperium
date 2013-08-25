@@ -35,10 +35,6 @@
 		</div>
 	</div>
 	
-
-	
-
-
 @stop
 
 @section('var')
@@ -55,5 +51,4 @@
 
 	yepnope('{{ asset('js/jquery.dataTables.min.js') }}');
 	yepnope('{{ asset('js/table.js') }}');
-
 @stop

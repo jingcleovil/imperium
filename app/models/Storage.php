@@ -10,7 +10,7 @@ class Storage extends Eloquent {
 		$table = DB::table($this->table)
 					->skip($skip)
 					->take($take)
-					->join('gcp_items','gcp_items.id','=','storage.nameid')
+					->join('lgcp_items','gcp_items.id','=','storage.nameid')
 					->select('name_japanese','storage.id','expire_time','amount','nameid','type','gcp_items.id')
 					->where(function($query) use ($where) {
 						

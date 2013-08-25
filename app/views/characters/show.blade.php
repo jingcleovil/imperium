@@ -19,8 +19,6 @@
 		
 		<?php 
 			$maxStats = Config::get('ragnarok.ServerInfo.Server1.maxStats');
-
-
 		?>
 
 		<div class="col-md-4">
@@ -101,6 +99,10 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Friends</div>
 				<div class="panel-body">
+				
+
+
+
 
 				</div>
 			</div>
@@ -114,7 +116,23 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Inventory Items</div>
 				<div class="panel-body">
+						
 
+					<table class="table table-striped table-bordered" id="grid">
+				    	<thead>
+							<tr>
+								<th>ID</th>
+								<th width="6%">Icon</th>
+								<th>Name</th>
+								<th>Amount</th>
+								<th>Expire On</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+							
+						</tbody>    
+				    </table>
 				</div>
 			</div>
 		</div>
@@ -125,14 +143,18 @@
 @stop
 
 @section('var')
-	
+	var unsortable_cols = [0];
+	var action_url = 'inventory';
+	param = {'name':'char_id','value': {{$char->char_id}} };
 @stop;
 
 @section('css')
-	
+	{{ stylesheet('jquery.dataTables.css') }}
+	{{ stylesheet('DT_table.css') }}
 @stop
 
 @section('js')
-	
 
+	yepnope('{{ asset('js/jquery.dataTables.min.js') }}');
+	yepnope('{{ asset('js/table.js') }}?v='+ Math.random());
 @stop

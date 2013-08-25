@@ -178,4 +178,36 @@ class ItemsController extends BaseController {
 		//
 	}
 
+	public function lists()
+	{
+		$displayRecords = Input::get('iDisplayLength');
+		$iDisplayStart	= Input::get('iDisplayStart');
+		$sSearch 		= Input::get('sSearch');
+
+		$rows 			= [];
+		$filter			= [];
+		$data['aaData'] = [];
+
+		if($sSearch)
+		{
+			$filter = ['userid','like',"%$sSearch%"];
+		}
+
+		$results 	= $this->table->read($filter,$iDisplayStart,$displayRecords,array('id'=>'desc'));
+		$total 		= $this->table->read($filter)->count();
+
+		foreach($results->get() as $res)
+		{
+			$rows[] = array(
+				
+			);
+		}
+
+		$data['aaData'] = $rows;
+
+		$data['iTotalDisplayRecords'] = $total;
+		$data['iTotalRecords'] = $displayRecords;
+
+		return Response::json($data);
+	}
 }

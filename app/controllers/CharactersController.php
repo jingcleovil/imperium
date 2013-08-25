@@ -212,4 +212,59 @@ class CharactersController extends BaseController {
 
 		return Response::json($data);
 	}
+
+	public function inventory()
+	{
+
+		$displayRecords = Input::get('iDisplayLength');
+		$iDisplayStart	= Input::get('iDisplayStart');
+		$sSearch 		= Input::get('sSearch');
+
+		$char_id 	= Input::get('char_id');
+
+		$rows 			= [];
+		$filter			= [];
+		$data['aaData'] = [];
+
+		$filter[]		= ['char_id','=',$char_id];
+
+		if($sSearch)
+		{
+			$filter[] = ['name_japanese','like',"%$sSearch%"];
+		}
+
+		$results 	= $this->table->inventory($filter,$iDisplayStart,$displayRecords,array('inventory.id'=>'desc'));
+		$total 		= $this->table->inventory($filter)->count();
+
+		foreach($results->get() as $res)
+		{
+			$image = "";
+
+			if(file_exists(public_path('images/items/thumb/'.$res->nameid.".gif")))
+			{
+				$image = "<img src='".asset('images/items/thumb/'.$res->nameid).".gif'/>";
+			}
+
+			if($res->type == 6)
+			{
+				$image = "<img src='".asset('images/items/card.gif')."'/>";
+			}
+
+
+			$rows[] = array(
+				$res->id,
+				$image,
+				$res->name_japanese,
+				$res->amount,
+				$res->expire_time
+			);
+		}
+
+		$data['aaData'] = $rows;
+
+		$data['iTotalDisplayRecords'] = $total;
+		$data['iTotalRecords'] = $displayRecords;
+
+		return Response::json($data);
+	}
 }

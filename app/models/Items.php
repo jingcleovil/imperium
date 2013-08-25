@@ -18,7 +18,6 @@ class Items extends Eloquent {
 							foreach($where as $w)
 								$query->where($w[0],$w[1],$w[2]);
 						}
-						
 					});
 
 		if($orderby && is_array($orderby))
@@ -37,4 +36,6 @@ class Items extends Eloquent {
 
 		return $table;
 	}
+
+	
 }

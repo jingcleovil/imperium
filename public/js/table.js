@@ -154,6 +154,9 @@ $(document).ready(function() {
     if(typeof param == "undefined")
     	param = {'name':'test','value':'test'};
 
+    if(typeof module_extended != "undefined")
+    	module = module_extended;
+
 
     $.extend($.fn.dataTableExt.oStdClasses, extensions);
 

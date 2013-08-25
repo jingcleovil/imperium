@@ -18,6 +18,7 @@ Route::resource('accounts', 'AccountsController');
 Route::resource('streams', 'StreamsController');
 
 // Characters Routes
+Route::resource('characters/inventory', 'CharactersController@inventory');
 Route::resource('characters/stats', 'CharactersController@stats');
 Route::resource('characters/lists', 'CharactersController@lists');
 Route::resource('characters', 'CharactersController');
@@ -25,6 +26,7 @@ Route::resource('characters', 'CharactersController');
 // Items Routes
 Route::get('items/purchase','ItemsController@purchase');
 Route::get('items/purchase/{type}','ItemsController@purchase');
+Route::post('items/lists','ItemsController@lists');
 Route::post('items/purchase','ItemsController@purchase');
 Route::resource('items', 'ItemsController');
 

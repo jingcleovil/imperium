@@ -27,7 +27,13 @@
 								<label for="exampleInputPassword1">Password</label> 
 								<input type="password" class="form-control" placeholder="Password" name="user_pass">
 							</div>
-
+							
+							<div class="form-group">
+								Demo Admin: admin / admin
+							</div>
+							<div class="form-group">
+								Demo Player: player / player
+							</div>
 				
 							<button type="submit" class="btn btn-success">Log Me In</button>
 
