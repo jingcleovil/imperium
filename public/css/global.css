@@ -265,6 +265,16 @@ h1 .glyphicon {font-size: 22px;}
 	width: 205px;
 	height: 205px;
 	margin: 0 auto;
+	position: relative;
+}
+
+.mini-map span.pos {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background: red;
+	display: block;
 }
 
 @media screen and (max-width: 768px) {

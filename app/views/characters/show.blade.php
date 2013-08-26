@@ -40,64 +40,82 @@
 						<div class="col-md-2 col-xs-6">
 							STR
 						</div>
-						<div class="col-md-10 col-xs-6">
+						<div class="col-md-8 col-xs-6">
 							<div class="progress">
 								<div class="progress-bar progress-bar-success" style="width: {{ ($char->str / $maxStats) * 100 }}%"></div>
 							</div>
+						</div>
+						<div class="col-md-2 col-xs-6">
+							{{$char->str}}
 						</div>
 					</li>
 					<li class="list-group-item clearfix">
 						<div class="col-md-2 col-xs-6">
 							AGI
 						</div>
-						<div class="col-md-10 col-xs-6">
+						<div class="col-md-8 col-xs-6">
 							<div class="progress">
 								<div class="progress-bar progress-bar-success" style="width: {{ ($char->agi / $maxStats) * 100 }}%">
 								</div>
 							</div>
+						</div>
+						<div class="col-md-2 col-xs-6">
+							{{$char->agi}}
 						</div>
 					</li>
 					<li class="list-group-item clearfix">
 						<div class="col-md-2 col-xs-6">
 							VIT
 						</div>
-						<div class="col-md-10 col-xs-6">
+						<div class="col-md-8 col-xs-6">
 							<div class="progress">
 								<div class="progress-bar progress-bar-success" style="width: {{ ($char->vit / $maxStats) * 100 }}%"></div>
 							</div>
+						</div>
+						<div class="col-md-2 col-xs-6">
+							{{$char->vit}}
 						</div>
 					</li>
 					<li class="list-group-item clearfix">
 						<div class="col-md-2 col-xs-6">
 							INT
 						</div>
-						<div class="col-md-10 col-xs-6">
+						<div class="col-md-8 col-xs-6">
 							<div class="progress">
 								<div class="progress-bar progress-bar-success" role="progressbar" style="width: {{ ($char->int / $maxStats) * 100 }}%">
 								</div>
 							</div>
+						</div>
+						<div class="col-md-2 col-xs-6">
+							{{$char->int}}
 						</div>
 					</li>
 					<li class="list-group-item clearfix">
 						<div class="col-md-2 col-xs-6">
 							DEX
 						</div>
-						<div class="col-md-10 col-xs-6">
+						<div class="col-md-8 col-xs-6">
 							<div class="progress">
 								<div class="progress-bar progress-bar-success" style="width: {{ ($char->dex / $maxStats) * 100 }}%">
 								</div>
 							</div>
+						</div>
+						<div class="col-md-2 col-xs-6">
+							{{$char->dex}}
 						</div>
 					</li>
 					<li class="list-group-item clearfix">
 						<div class="col-md-2 col-xs-6">
 							LUK
 						</div>
-						<div class="col-md-10 col-xs-6">
+						<div class="col-md-8 col-xs-6">
 							<div class="progress">
 								<div class="progress-bar progress-bar-success" style="width: {{ ($char->luk / $maxStats) * 100 }}%">
 								</div>
 							</div>
+						</div>
+						<div class="col-md-2 col-xs-6">
+							{{$char->luk}}
 						</div>
 					</li>
 				</ul>
@@ -111,6 +129,7 @@
 				<div class="panel-body">
 					
 					<div class="mini-map">
+						<span class="pos" style="top:{{$char->save_x}}px;left:{{$char->save_y}}px"></span>
 						@if(file_exists(public_path('images/maps/'.$char->save_map.'.gif'))) 
 							<img src="{{ asset('images/maps/'.$char->save_map.'.gif') }}"/>
 						@endif
