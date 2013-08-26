@@ -37,5 +37,12 @@ class Items extends Eloquent {
 		return $table;
 	}
 
+	public function getItem($nameid)
+	{
+		$table = DB::table('gcp_items')->where('nameid','=',$nameid)->get();
+
+		return $table;
+	}
+
 	
 }

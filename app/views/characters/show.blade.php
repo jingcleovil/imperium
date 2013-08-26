@@ -7,6 +7,16 @@
 				<div class="panel-heading">{{ $char->name }}</div>
 				<div class="panel-body">
 					<div class="equipwin">
+						@foreach($equips as $equip)
+							<span class="equip_{{$equip['equip']}}">
+								@if(file_exists('images/items/thumb/'.$equip['nameid'].'.gif'))
+									<img src="{{ asset('images/items/thumb/'.$equip['nameid'].'.gif') }}" />
+								@endif
+							</span>
+						@endforeach
+
+						
+
 						<div class="char-body">
 							<?php if(file_exists(public_path('images/jobs/'.$char->sex.'/'.$char->class.'.png'))) {?> 
 									<img src="{{ asset('images/jobs/'.$char->sex.'/'.$char->class.'.png') }}"/>

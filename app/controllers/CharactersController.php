@@ -76,6 +76,17 @@ class CharactersController extends BaseController {
 
 		$char = $user->read($filter)->get();
 
+		$data['equips'] = Character::find($id)
+							->equip()
+							->where('equip','>',0)
+							->get()
+							->toArray();
+
+		// echo "<pre>";
+		// print_r($data['equips']);
+
+		// exit;
+
 		$data['title'] 	= "Viewing Character [ ".$id." ]";
 		$data['char'] = $char[0];
 		$data['icon'] 	= "user";

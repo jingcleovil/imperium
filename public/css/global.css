@@ -303,3 +303,68 @@ h1 .glyphicon {font-size: 22px;}
 .new-stream {
 	display: none
 }
+
+.equipwin {
+	position: relative;
+}
+
+.equipwin span {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	top: 0;
+	left: 5px;
+}
+
+.equipwin .equip_512 {
+	top: 42px;
+}
+
+.equipwin .equip_1 {
+	top: 66px;
+}
+
+.equipwin .equip_32768,
+.equipwin .equip_2
+{
+	top: 92px;
+}
+
+.equipwin .equip_4 {
+	top: 118px;
+}
+
+.equipwin .equip_8 {
+	top: 144px;
+}
+
+.equipwin .equip_256 {
+	left: auto;
+	right: 5px;
+	top: 41px;
+}
+
+.equipwin .equip_16 {
+	left: auto;
+	right: 5px;
+	top: 66px;
+}
+
+.equipwin .lhand {
+	left: auto;
+	right: 5px;
+	top: 91px;
+}
+
+.equipwin .equip_64 {
+	left: auto;
+	right: 5px;
+	top: 117px;
+}
+
+.equipwin .equip_128 {
+	left: auto;
+	right: 5px;
+	top: 143px;
+}
+

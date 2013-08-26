@@ -82,4 +82,9 @@ class Character extends Eloquent {
 
 		return $table;
 	}
+
+	public function equip() 
+	{
+		return $this->hasOne('Inventory','char_id');
+	}
 }
