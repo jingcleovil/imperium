@@ -10,3 +10,4 @@ public/images/items/*
 public/images/jobs/*
 public/images/maps/*
 app/add_ons/
+*.sql

@@ -320,11 +320,12 @@ h1 .glyphicon {font-size: 22px;}
 
 .equipwin span {
 	position: absolute;
-	width: 24px;
+	width: 100px;
 	height: 24px;
 	top: 0;
 	left: 5px;
 }
+
 
 .equipwin .equip_512 {
 	top: 42px;
@@ -352,29 +353,34 @@ h1 .glyphicon {font-size: 22px;}
 	left: auto;
 	right: 5px;
 	top: 41px;
+	text-align: right;
 }
 
 .equipwin .equip_16 {
 	left: auto;
 	right: 5px;
 	top: 66px;
+	text-align: right;
 }
 
 .equipwin .equip_32 {
 	left: auto;
 	right: 5px;
 	top: 91px;
+	text-align: right;
 }
 
 .equipwin .equip_64 {
 	left: auto;
 	right: 5px;
 	top: 117px;
+	text-align: right;
 }
 
 .equipwin .equip_128 {
 	left: auto;
 	right: 5px;
 	top: 143px;
+	text-align: right;
 }
 
